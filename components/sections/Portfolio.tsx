@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { cases } from "../../config/data";
 import { ArrowUpRight } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Portfolio() {
   return (
@@ -19,15 +20,15 @@ export function Portfolio() {
 
       <div className="grid gap-8 md:grid-cols-2">
         {cases.map((item, i) => (
-          <motion.a
-            href={item.link}
-            target="_blank"
-            rel="noopener noreferrer"
+          <motion.div
             key={item.name}
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
+          >
+            <Link
+              href={`/portafolio/${item.slug}`}
             className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl hover:-translate-y-1 block"
           >
             <div className="relative h-72 w-full overflow-hidden border-b border-slate-100 bg-[#0a1224]">
@@ -53,7 +54,8 @@ export function Portfolio() {
                 {item.result}
               </p>
             </div>
-          </motion.a>
+            </Link>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -170,15 +170,31 @@ export const metrics = [
 export const cases = [
   {
     name: "Alpha Dent Service",
+    slug: "alpha-dent-service",
+    client: "Alpha Dent",
     result: "Desarrollo de ecosistema digital corporativo: sitio web con reservas automatizadas, CRM a medida en Supabase, y portal de administración financiero.",
     image: "/assets/portfolio_alphadent_real.png",
-    link: "https://alphadentservice.com"
+    link: "https://alphadentservice.com",
+    tags: ["Next.js", "Supabase", "CRM", "SaaS"],
+    duration: "6 Semanas",
+    review: {
+      before: "Alpha Dent operaba con procesos manuales en la gestión de citas de servicios dentales. Su agenda dependía de llamadas telefónicas y mensajes de WhatsApp descoordinados, lo que generaba cuellos de botella administrativos. Su presencia web era estática y no permitía la captación automatizada de pacientes ni el seguimiento financiero de las órdenes de compra.",
+      after: "Transformamos su operación desarrollando un **Ecosistema Digital Completo**. Creamos un sitio web moderno con un flujo de reservas automatizado (booking wizard) que convierte visitantes en pacientes. Integramos esto con un **CRM a medida** respaldado por Supabase, permitiendo a la administración gestionar la agenda en tiempo real, sincronizar inventarios y automatizar el control financiero con dashboards gerenciales. El resultado: procesos 100% digitalizados y una imagen corporativa de alto impacto."
+    }
   },
   {
     name: "DML Security",
+    slug: "dml-security",
+    client: "DML Security",
     result: "Creación de landing page comercial y catálogo de servicios de seguridad electrónica, optimizado para captación de prospectos B2B.",
     image: "/assets/portfolio_dml_real.png",
-    link: "https://dmlsecurity.com.mx"
+    link: "https://dmlsecurity.com.mx",
+    tags: ["React", "Diseño Corporativo", "Lead Gen", "SEO"],
+    duration: "3 Semanas",
+    review: {
+      before: "DML Security, una empresa especialista en seguridad electrónica y CCTV, carecía de una presencia digital que reflejara el nivel empresarial de sus servicios. Sus esfuerzos de venta eran orgánicos pero les faltaba una plataforma centralizada que actuara como su principal canal de adquisición B2B para demostrar autoridad, certidumbre y mostrar su amplio catálogo de soluciones en seguridad.",
+      after: "Diseñamos e implementamos una **Plataforma Corporativa de Alta Conversión**. La nueva infraestructura web no solo proyecta confianza absoluta a corporativos y empresas, sino que funciona como una máquina de generación de prospectos 24/7. Estructuramos su catálogo de servicios (videovigilancia, alarmas, controles de acceso) con un diseño 'premium' y llamados a la acción estratégicos hacia WhatsApp y formularios de contacto directo. DML ahora cuenta con un activo digital que respalda y escala su fuerza de ventas."
+    }
   }
 ];
 
