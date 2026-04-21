@@ -169,17 +169,17 @@ export const metrics = [
 
 export const cases = [
   {
-    name: "Empresa B2B de servicios",
-    result: "Incremento de reuniones calificadas en 60 días",
+    name: "Alpha Dent Service",
+    result: "Desarrollo de ecosistema digital corporativo: sitio web con reservas automatizadas, CRM a medida en Supabase, y portal de administración financiero.",
+    image: "/assets/portfolio_alphadent.png",
+    link: "https://alphadent.mx"
   },
   {
-    name: "Operación comercial regional",
-    result: "Reducción del costo por lead con web y campañas integradas",
-  },
-  {
-    name: "Firma en crecimiento",
-    result: "Centralización de CRM, soporte y seguimiento comercial",
-  },
+    name: "DML Security",
+    result: "Creación de landing page comercial y catálogo de servicios de seguridad electrónica, optimizado para captación de prospectos B2B.",
+    image: "/assets/portfolio_dml.png",
+    link: "https://dmlsecurity.com.mx"
+  }
 ];
 
 export const plans = [
