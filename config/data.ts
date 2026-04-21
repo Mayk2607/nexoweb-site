@@ -172,7 +172,7 @@ export const cases = [
     name: "Alpha Dent Service",
     result: "Desarrollo de ecosistema digital corporativo: sitio web con reservas automatizadas, CRM a medida en Supabase, y portal de administración financiero.",
     image: "/assets/portfolio_alphadent.png",
-    link: "https://alphadent.mx"
+    link: "https://alphadentservice.com"
   },
   {
     name: "DML Security",
