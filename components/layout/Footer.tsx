@@ -25,8 +25,8 @@ export function Footer() {
               <Image
                 src="/logo.png"
                 alt="Nexoweb"
-                width={160}
-                height={45}
+                width={100}
+                height={100}
                 className="h-10 w-auto object-contain brightness-0 invert"
               />
             </div>
