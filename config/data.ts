@@ -4,7 +4,7 @@ export const menuItems = [
   { label: "Servicios", href: "#servicios" },
   { label: "Paquetes", href: "#paquetes" },
   { label: "Portafolio", href: "#portafolio" },
-  { label: "Blog", href: "#blog" },
+  { label: "Blog", href: "/blog" },
   { label: "Contacto", href: "#contacto" },
 ];
 
@@ -25,7 +25,7 @@ export const services = [
       { name: "Brand Corporate", price: "$18,900 MXN", features: ["Todo el plan Starter", "Manual de identidad corporativo completo", "Diseño de 10 plantillas para Redes Sociales", "Papelería digital (Firma de correo, hojas membretadas)", "3 Rondas de revisión"] },
       { name: "Brand 360 Premium", price: "$34,900 MXN", features: ["Todo el plan Corporate", "Brandbook interactivo y guía de estilo", "Estrategia de voz y tono de marca", "Lineamientos de fotografía corporativa", "Diseño de empaque o merchandising", "Revisiones ilimitadas en etapa de boceto"] }
     ],
-    image: "/assets/branding_service_header_1776754721013.png"
+    image: "/assets/branding_service.png"
   },
   {
     title: "Hosting administrado",
@@ -43,7 +43,7 @@ export const services = [
       { name: "Hosting Avanzado", price: "$3,490 MXN/año", features: ["50GB SSD NVMe de máxima velocidad", "Certificado SSL Premium", "Hasta 20 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups diarios automáticos", "Optimización de caché LiteSpeed"] },
       { name: "VPS Dedicado", price: "$8,900 MXN/año", features: ["Servidor Privado (2 vCPU, 4GB RAM)", "Recursos aislados 100% para tu empresa", "Cuentas de correo ilimitadas", "Dominio .com GRATIS (1er año)", "IP Dedicada", "Soporte prioritario y monitoreo 24/7"] }
     ],
-    image: "/assets/hosting_service_header_1776754763937.png"
+    image: "/assets/hosting_service.png"
   },
   {
     title: "Diseño web profesional",
@@ -61,7 +61,7 @@ export const services = [
       { name: "Web Corporativa", price: "$16,900 MXN", features: ["Sitio multi-página (Hasta 5 secciones)", "Diseño de interfaz premium personalizado", "Módulo de Blog integrado", "Estrategia SEO On-Page", "Panel autoadministrable", "Hosting 1 año incluido"] },
       { name: "E-commerce Avanzado", price: "$32,900 MXN", features: ["Catálogo de productos online", "Integración de pasarelas de pago (Stripe, PayPal, MercadoPago)", "Perfiles de usuario y carritos abandonados", "Optimización extrema (Core Web Vitals)", "Capacitación de uso de plataforma", "Mantenimiento gratuito 1 mes"] }
     ],
-    image: "/assets/web_design_service_header_1776754777462.png"
+    image: "/assets/webdesign_service.png"
   },
   {
     title: "Desarrollo de sistemas (CRM)",
@@ -79,7 +79,7 @@ export const services = [
       { name: "CRM + Automatización", price: "$29,900 MXN", features: ["Todo el Setup Base", "Automatizaciones avanzadas (Email y WhatsApp)", "Módulo de seguimiento y recordatorios automáticos", "Dashboards y gráficas personalizadas en tiempo real", "Integración con calendarios (Calendly/Google)", "Soporte post-implementación"] },
       { name: "Desarrollo a Medida", price: "Desde $55,000 MXN", features: ["Desarrollo de módulos operativos propios", "Conexión de datos mediante APIs externas", "Creación de portal privado de clientes", "Arquitectura escalable en la nube (Serverless)", "Auditoría de seguridad", "Soporte y mantenimiento continuo"] }
     ],
-    image: "/assets/media__1776788727771.png"
+    image: "/assets/crm_service.png"
   },
   {
     title: "Soporte IT",
@@ -97,7 +97,7 @@ export const services = [
       { name: "Póliza Mensual Base", price: "$4,500 MXN/mes", features: ["Horas ilimitadas (resolución de fallos web/correo)", "Monitoreo proactivo de sitio web", "Gestión de licencias y usuarios (Google Workspace)", "Mantenimiento preventivo mensual", "Tiempo de respuesta estándar (4 hrs)", "Asesoría IT básica"] },
       { name: "Póliza Corporativa 24/7", price: "$12,900 MXN/mes", features: ["SLA de respuesta rápida (1 hora)", "Soporte técnico avanzado 24/7", "Gestión completa de servidores y bases de datos", "Auditoría de ciberseguridad mensual", "Respaldos en la nube gestionados", "Reunión de consultoría IT trimestral"] }
     ],
-    image: "/assets/media__1776788809733.png"
+    image: "/assets/support_service.png"
   },
   {
     title: "Marketing digital y captación",
@@ -115,7 +115,7 @@ export const services = [
       { name: "Growth Digital", price: "$14,900 MXN/mes", features: ["Gestión de múltiples campañas (Google y Meta)", "Creación de 12 diseños/posts mensuales para RRSS", "Copywriting persuasivo para anuncios", "Campañas de Retargeting a visitantes de la web", "Gestión básica de comunidad (Respuestas en redes)", "Sesión estratégica de revisión mensual"] },
       { name: "Dirección Mkt 360", price: "$28,900 MXN/mes", features: ["Estrategia omnicanal (Ads, SEO, Email Marketing)", "Embudos automatizados de captación de leads", "Producción de creativos (Incluye edición de video corto)", "Publicaciones ilimitadas planificadas estratégicamente", "Reportes en tiempo real y KPIs de negocio", "Reuniones quincenales de alineación comercial"] }
     ],
-    image: "/assets/media__1776788925957.png"
+    image: "/assets/marketing_service.png"
   },
   {
     title: "Digitalización de cobranza y pagos",
@@ -133,7 +133,7 @@ export const services = [
       { name: "Automatización E-commerce", price: "$12,900 MXN", features: ["Todo el Setup Express", "Integración directa en tu sitio web actual", "Carrito de compras optimizado", "Configuración de impuestos y envíos", "Recuperación de carritos abandonados", "Pruebas de pago en entorno seguro"] },
       { name: "Suscripciones (MRR)", price: "$18,500 MXN", features: ["Todo lo anterior", "Lógica de cobros mensuales/anuales (Suscripciones)", "Portales de cliente para gestionar tarjetas", "Webhooks para notificación de pagos exitosos", "Cancelaciones automatizadas", "Consultoría para estructurar precios MRR"] }
     ],
-    image: "/assets/digital_payments_header_1776783642727.png"
+    image: "/assets/payments_service.png"
   }
 ];
 
@@ -374,4 +374,96 @@ export const niches = [
       "Acompañamiento técnico para administración y estabilidad digital",
     ],
   },
+];
+
+export const blogPosts = [
+  {
+    title: "Cómo construir una marca digital consistente",
+    slug: "como-construir-marca-digital-consistente",
+    date: "12 Abril, 2026",
+    excerpt: "La coherencia visual y narrativa es el activo más valioso de cualquier empresa en el entorno digital. Descubre cómo estructurar una identidad que genere confianza inmediata.",
+    image: "/assets/blog_marca.png",
+    content: `
+      <h2>El poder de la primera impresión digital</h2>
+      <p>En un entorno donde la competencia está a un clic de distancia, la identidad de tu empresa no puede permitirse ser ambigua. Una marca digital consistente no solo se trata de un logotipo bonito; es el ecosistema completo de cómo te perciben tus prospectos en todos los puntos de contacto.</p>
+      
+      <h3>1. Estandarización Visual</h3>
+      <p>El cerebro humano procesa imágenes 60,000 veces más rápido que el texto. Si un usuario ve un anuncio tuyo en redes sociales y luego visita tu sitio web, la transición debe ser impecable. Utilizar una <strong>paleta de colores estricta</strong>, un <strong>sistema tipográfico limpio</strong> y un <strong>estilo fotográfico corporativo</strong> asegura que tu marca sea reconocible al instante.</p>
+
+      <h3>2. Voz y Tono: La personalidad corporativa</h3>
+      <p>¿Cómo habla tu empresa? Ya sea a través de un artículo de blog, un correo electrónico de soporte o un mensaje de WhatsApp, la voz debe ser siempre la misma. Definir si tu tono es <em>directo y ejecutivo</em>, <em>cálido y consultivo</em> o <em>técnico y autoritativo</em> es fundamental para conectar con tu cliente ideal.</p>
+
+      <h3>3. Manual de Identidad Digital</h3>
+      <p>Toda empresa que busque escalar necesita un documento central que dicte las reglas del juego. Un <strong>Brandbook</strong> moderno debe incluir:</p>
+      <ul>
+        <li>Reglas de uso del logotipo (y qué NO hacer).</li>
+        <li>Códigos hexadecimales exactos de la paleta de colores.</li>
+        <li>Jerarquía tipográfica para web y móvil.</li>
+        <li>Ejemplos de copys y lineamientos de redacción.</li>
+      </ul>
+
+      <blockquote>
+        "La consistencia construye confianza, y la confianza construye ventas."
+      </blockquote>
+
+      <p>En Nexoweb, nuestro proceso de Branding Corporativo no solo entrega archivos gráficos, sino que construye el sistema operativo visual y narrativo que tu empresa necesita para destacar y liderar su sector.</p>
+    `
+  },
+  {
+    title: "CRM para equipos comerciales: guía práctica",
+    slug: "crm-equipos-comerciales-guia-practica",
+    date: "18 Abril, 2026",
+    excerpt: "Implementar un CRM es el primer paso hacia la previsibilidad financiera. Conoce las mejores prácticas para asegurar que tu equipo de ventas realmente lo utilice.",
+    image: "/assets/blog_crm.png",
+    content: `
+      <h2>Del caos a la previsibilidad comercial</h2>
+      <p>El principal problema de los equipos de ventas modernos no es la falta de prospectos, sino la <strong>fuga de oportunidades</strong> por falta de seguimiento estructurado. Un CRM (Customer Relationship Management) es la columna vertebral de cualquier operación comercial que aspire a escalar.</p>
+
+      <h3>El error de la "Carga de Datos"</h3>
+      <p>Muchos proyectos de CRM fracasan porque se convierten en una carga administrativa para los vendedores. La clave del éxito es la <strong>automatización invisible</strong>.</p>
+      <p>En lugar de pedirle a un vendedor que registre manualmente cada interacción, el CRM debe conectarse con sus herramientas diarias: captura automática de leads desde la web, sincronización de correos y conexión directa con WhatsApp.</p>
+
+      <h3>Pipeline: El mapa del tesoro</h3>
+      <p>Tu embudo de ventas (Pipeline) debe reflejar exactamente tu proceso comercial real, no una teoría genérica. Etapas recomendadas para servicios B2B:</p>
+      <ol>
+        <li><strong>Lead Nuevo:</strong> Entró por la web o campaña.</li>
+        <li><strong>Contacto Inicial:</strong> Se agendó o se tuvo la primera llamada.</li>
+        <li><strong>Diagnóstico / Cotización:</strong> Se envió la propuesta comercial.</li>
+        <li><strong>Negociación:</strong> Seguimiento activo de la propuesta.</li>
+        <li><strong>Ganado / Perdido:</strong> Cierre financiero y traspaso a operaciones.</li>
+      </ol>
+
+      <h3>Métricas que importan</h3>
+      <p>Un buen CRM te permite pasar de "siento que vamos bien" a "tenemos un ROI medible". Vigila de cerca el <em>Tasa de Conversión por Etapa</em>, la <em>Velocidad del Ciclo de Ventas</em> y el <em>Motivo de Pérdida (Loss Reason)</em> para iterar tu estrategia.</p>
+
+      <p>En Nexoweb, desarrollamos e implementamos sistemas CRM hechos a medida o integramos soluciones líderes del mercado, asegurando que tu equipo comercial tenga las herramientas para vender más y administrar menos.</p>
+    `
+  },
+  {
+    title: "Captación de clientes: estrategia y medición",
+    slug: "captacion-clientes-estrategia-medicion",
+    date: "21 Abril, 2026",
+    excerpt: "No pagues por likes, invierte en adquisición de clientes. Cómo estructurar campañas de marketing digital que generen un Retorno de Inversión (ROI) positivo y predecible.",
+    image: "/assets/blog_captacion.png",
+    content: `
+      <h2>El fin del marketing de vanidad</h2>
+      <p>En la madurez del ecosistema digital, las métricas de vanidad (likes, seguidores, visualizaciones vacías) han perdido todo su valor corporativo. El único indicador que debe importar a una Dirección General es el <strong>CAC (Costo de Adquisición de Clientes)</strong> y el <strong>ROAS (Retorno de Inversión Publicitaria)</strong>.</p>
+
+      <h3>El Embudo de Conversión (Funnels)</h3>
+      <p>Una estrategia de captación efectiva no envía tráfico ciego a una página de inicio (Home). Utiliza embudos específicos diseñados para una acción única. La estructura ganadora se divide en tres fases:</p>
+      <ul>
+        <li><strong>TOFU (Top of Funnel):</strong> Campañas de reconocimiento para audiencias que no te conocen. Aquí se utiliza contenido educativo y de alto valor.</li>
+        <li><strong>MOFU (Middle of Funnel):</strong> Retargeting a usuarios que interactuaron, ofreciendo un imán de leads (Lead Magnet) o un diagnóstico gratuito.</li>
+        <li><strong>BOFU (Bottom of Funnel):</strong> Anuncios directos a la venta u ofertas exclusivas para cerrar a los prospectos más calientes.</li>
+      </ul>
+
+      <h3>El poder de las Landing Pages</h3>
+      <p>Una campaña de Google Ads sin una Landing Page optimizada es dinero quemado. La página de destino debe tener un único llamado a la acción (CTA), cargar en menos de 2 segundos y eliminar cualquier punto de fuga (como el menú de navegación completo).</p>
+
+      <h3>Medición en Tiempo Real</h3>
+      <p>La ventaja del marketing digital es la trazabilidad. Utilizar píxeles de seguimiento avanzados (Meta Pixel, Google Tag Manager) permite saber exactamente qué campaña, qué anuncio y qué palabra clave generó al cliente que cerró el contrato de $50,000 MXN.</p>
+
+      <p>El departamento de <em>Growth Digital</em> de Nexoweb no crea campañas bonitas, crea ecosistemas de adquisición predecibles. Diagnosticamos tu costo de adquisición actual y estructuramos canales escalables para tu negocio.</p>
+    `
+  }
 ];

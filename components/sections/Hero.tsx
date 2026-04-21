@@ -50,21 +50,27 @@ export function Hero() {
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="relative w-full h-[500px] rounded-3xl overflow-hidden shadow-2xl border border-white/20"
+          className="rounded-2xl border border-slate-200 bg-white p-8 shadow-xl shadow-slate-200/50 relative overflow-hidden"
         >
           {/* Decorative background glow */}
-          <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-500 rounded-full blur-[100px] opacity-30 pointer-events-none" />
+          <div className="absolute -top-24 -right-24 w-48 h-48 bg-blue-100 rounded-full blur-3xl opacity-50 pointer-events-none" />
           
-          <img
-            src="/assets/hero_section_1776752771489.png"
-            alt="Ecosistema Nexoweb"
-            className="w-full h-full object-cover rounded-3xl"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-[#0f274f]/80 to-transparent flex flex-col justify-end p-8">
-             <p className="text-sm font-semibold uppercase tracking-[0.2em] text-white/80">
-              Nexoweb en acción
-            </p>
-            <p className="mt-2 text-white font-medium">Potenciando marcas digitales de alto rendimiento</p>
+          <p className="text-sm font-semibold uppercase tracking-[0.2em] text-slate-500 relative z-10">
+            Nexoweb en acción
+          </p>
+          <div className="mt-6 grid grid-cols-2 gap-5 relative z-10">
+            {metrics.map((metric, i) => (
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3 + i * 0.1 }}
+                key={metric.label}
+                className="rounded-xl border border-slate-100 bg-slate-50/50 p-5 hover:bg-slate-50 transition-colors"
+              >
+                <p className="text-3xl font-bold text-[#0f274f]">{metric.value}</p>
+                <p className="mt-2 text-sm text-slate-600 font-medium leading-snug">{metric.label}</p>
+              </motion.div>
+            ))}
           </div>
         </motion.div>
       </div>

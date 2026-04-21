@@ -21,12 +21,12 @@ export default function Home() {
         <Hero />
         <About />
         <Services />
+        <Process />
         <Ecosystem />
         <Pricing />
         <CustomProjectBanner />
         <Niches />
         <Portfolio />
-        <Process />
         <Blog />
         <Contact />
       </div>

@@ -21,14 +21,16 @@ export function Footer() {
           
           {/* Brand & Info */}
           <div className="space-y-6">
-            <div className="mb-2">
-              <Image
-                src="/logo.png"
-                alt="Nexoweb"
-                width={100}
-                height={100}
-                className="h-10 w-auto object-contain brightness-0 invert"
-              />
+            <div className="flex items-center gap-2">
+              <div className="flex items-center justify-center h-16 w-auto">
+                <Image
+                  src="/logo.png"
+                  alt="Nexoweb"
+                  width={300}
+                  height={300}
+                  className="h-full w-auto object-contain brightness-0 invert scale-[1.8] origin-left"
+                />
+              </div>
             </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Agencia de transformación digital corporativa. Especialistas en automatización, diseño de software y crecimiento exponencial.
