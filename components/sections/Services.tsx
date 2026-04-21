@@ -34,16 +34,25 @@ export function Services() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: i * 0.1 }}
-            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white p-8 shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:border-[#1c4a8f]/30"
+            className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:-translate-y-1 hover:shadow-xl hover:border-[#1c4a8f]/30 flex flex-col"
           >
-            {/* Subtle background glow on hover */}
-            <div className="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-gradient-to-br from-[#1c4a8f]/5 to-transparent blur-2xl transition-opacity opacity-0 group-hover:opacity-100" />
-
-            <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#15366b] to-[#2c63b8] text-white shadow-md">
-              <Layers className="h-6 w-6" />
+            {/* Image Header */}
+            <div className="w-full h-48 relative overflow-hidden bg-slate-100">
+              <img
+                src={service.image || "/assets/media__1776786135245.png"}
+                alt={service.title}
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
             </div>
-            <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
-            <p className="mt-4 leading-relaxed text-slate-600">{service.description}</p>
+
+            <div className="p-8 flex-1 flex flex-col">
+              <div className="mb-6 flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br from-[#15366b] to-[#2c63b8] text-white shadow-md relative -mt-14 z-10 border-4 border-white">
+                <Layers className="h-5 w-5" />
+              </div>
+              <h3 className="text-xl font-bold text-slate-900">{service.title}</h3>
+              <p className="mt-4 leading-relaxed text-slate-600 flex-1">{service.description}</p>
+            </div>
           </motion.article>
         ))}
       </div>

@@ -25,7 +25,7 @@ export const services = [
       { name: "Brand Corporate", price: "$18,900 MXN", features: ["Todo el plan Starter", "Manual de identidad corporativo completo", "Diseño de 10 plantillas para Redes Sociales", "Papelería digital (Firma de correo, hojas membretadas)", "3 Rondas de revisión"] },
       { name: "Brand 360 Premium", price: "$34,900 MXN", features: ["Todo el plan Corporate", "Brandbook interactivo y guía de estilo", "Estrategia de voz y tono de marca", "Lineamientos de fotografía corporativa", "Diseño de empaque o merchandising", "Revisiones ilimitadas en etapa de boceto"] }
     ],
-    image: "/images/branding_service_header.webp"
+    image: "/assets/branding_service_header_1776754721013.png"
   },
   {
     title: "Hosting administrado",
@@ -43,7 +43,7 @@ export const services = [
       { name: "Hosting Avanzado", price: "$3,490 MXN/año", features: ["50GB SSD NVMe de máxima velocidad", "Certificado SSL Premium", "Hasta 20 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups diarios automáticos", "Optimización de caché LiteSpeed"] },
       { name: "VPS Dedicado", price: "$8,900 MXN/año", features: ["Servidor Privado (2 vCPU, 4GB RAM)", "Recursos aislados 100% para tu empresa", "Cuentas de correo ilimitadas", "Dominio .com GRATIS (1er año)", "IP Dedicada", "Soporte prioritario y monitoreo 24/7"] }
     ],
-    image: "/images/hosting_service_header.webp"
+    image: "/assets/hosting_service_header_1776754763937.png"
   },
   {
     title: "Diseño web profesional",
@@ -61,7 +61,7 @@ export const services = [
       { name: "Web Corporativa", price: "$16,900 MXN", features: ["Sitio multi-página (Hasta 5 secciones)", "Diseño de interfaz premium personalizado", "Módulo de Blog integrado", "Estrategia SEO On-Page", "Panel autoadministrable", "Hosting 1 año incluido"] },
       { name: "E-commerce Avanzado", price: "$32,900 MXN", features: ["Catálogo de productos online", "Integración de pasarelas de pago (Stripe, PayPal, MercadoPago)", "Perfiles de usuario y carritos abandonados", "Optimización extrema (Core Web Vitals)", "Capacitación de uso de plataforma", "Mantenimiento gratuito 1 mes"] }
     ],
-    image: "/images/web_design_service_header.webp"
+    image: "/assets/web_design_service_header_1776754777462.png"
   },
   {
     title: "Desarrollo de sistemas (CRM)",
@@ -79,7 +79,7 @@ export const services = [
       { name: "CRM + Automatización", price: "$29,900 MXN", features: ["Todo el Setup Base", "Automatizaciones avanzadas (Email y WhatsApp)", "Módulo de seguimiento y recordatorios automáticos", "Dashboards y gráficas personalizadas en tiempo real", "Integración con calendarios (Calendly/Google)", "Soporte post-implementación"] },
       { name: "Desarrollo a Medida", price: "Desde $55,000 MXN", features: ["Desarrollo de módulos operativos propios", "Conexión de datos mediante APIs externas", "Creación de portal privado de clientes", "Arquitectura escalable en la nube (Serverless)", "Auditoría de seguridad", "Soporte y mantenimiento continuo"] }
     ],
-    image: "/images/crm_systems_service_header.webp"
+    image: "/assets/media__1776788727771.png"
   },
   {
     title: "Soporte IT",
@@ -97,7 +97,7 @@ export const services = [
       { name: "Póliza Mensual Base", price: "$4,500 MXN/mes", features: ["Horas ilimitadas (resolución de fallos web/correo)", "Monitoreo proactivo de sitio web", "Gestión de licencias y usuarios (Google Workspace)", "Mantenimiento preventivo mensual", "Tiempo de respuesta estándar (4 hrs)", "Asesoría IT básica"] },
       { name: "Póliza Corporativa 24/7", price: "$12,900 MXN/mes", features: ["SLA de respuesta rápida (1 hora)", "Soporte técnico avanzado 24/7", "Gestión completa de servidores y bases de datos", "Auditoría de ciberseguridad mensual", "Respaldos en la nube gestionados", "Reunión de consultoría IT trimestral"] }
     ],
-    image: "/images/it_support_service_header.webp"
+    image: "/assets/media__1776788809733.png"
   },
   {
     title: "Marketing digital y captación",
@@ -115,7 +115,7 @@ export const services = [
       { name: "Growth Digital", price: "$14,900 MXN/mes", features: ["Gestión de múltiples campañas (Google y Meta)", "Creación de 12 diseños/posts mensuales para RRSS", "Copywriting persuasivo para anuncios", "Campañas de Retargeting a visitantes de la web", "Gestión básica de comunidad (Respuestas en redes)", "Sesión estratégica de revisión mensual"] },
       { name: "Dirección Mkt 360", price: "$28,900 MXN/mes", features: ["Estrategia omnicanal (Ads, SEO, Email Marketing)", "Embudos automatizados de captación de leads", "Producción de creativos (Incluye edición de video corto)", "Publicaciones ilimitadas planificadas estratégicamente", "Reportes en tiempo real y KPIs de negocio", "Reuniones quincenales de alineación comercial"] }
     ],
-    image: "/images/digital_marketing_service_header.webp"
+    image: "/assets/media__1776788925957.png"
   },
   {
     title: "Digitalización de cobranza y pagos",
@@ -133,7 +133,7 @@ export const services = [
       { name: "Automatización E-commerce", price: "$12,900 MXN", features: ["Todo el Setup Express", "Integración directa en tu sitio web actual", "Carrito de compras optimizado", "Configuración de impuestos y envíos", "Recuperación de carritos abandonados", "Pruebas de pago en entorno seguro"] },
       { name: "Suscripciones (MRR)", price: "$18,500 MXN", features: ["Todo lo anterior", "Lógica de cobros mensuales/anuales (Suscripciones)", "Portales de cliente para gestionar tarjetas", "Webhooks para notificación de pagos exitosos", "Cancelaciones automatizadas", "Consultoría para estructurar precios MRR"] }
     ],
-    image: "/images/digital_payments_header.webp"
+    image: "/assets/digital_payments_header_1776783642727.png"
   }
 ];
 
