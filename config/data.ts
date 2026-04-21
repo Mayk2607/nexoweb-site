@@ -178,8 +178,8 @@ export const cases = [
     tags: ["Next.js", "Supabase", "CRM", "SaaS"],
     duration: "6 Semanas",
     review: {
-      before: "Alpha Dent operaba con procesos manuales en la gestión de citas de servicios dentales. Su agenda dependía de llamadas telefónicas y mensajes de WhatsApp descoordinados, lo que generaba cuellos de botella administrativos. Su presencia web era estática y no permitía la captación automatizada de pacientes ni el seguimiento financiero de las órdenes de compra.",
-      after: "Transformamos su operación desarrollando un **Ecosistema Digital Completo**. Creamos un sitio web moderno con un flujo de reservas automatizado (booking wizard) que convierte visitantes en pacientes. Integramos esto con un **CRM a medida** respaldado por Supabase, permitiendo a la administración gestionar la agenda en tiempo real, sincronizar inventarios y automatizar el control financiero con dashboards gerenciales. El resultado: procesos 100% digitalizados y una imagen corporativa de alto impacto."
+      before: "Alpha Dent operaba con procesos manuales en la gestión de citas de servicios dentales. Su agenda dependía de llamadas telefónicas y mensajes de WhatsApp descoordinados, lo que generaba cuellos de botella administrativos. Su presencia web era estática y no permitía la captación automatizada de clientes ni el seguimiento financiero de las órdenes de compra.",
+      after: "Transformamos su operación desarrollando un **Ecosistema Digital Completo**. Creamos un sitio web moderno con un flujo de reservas automatizado (booking wizard) que convierte visitantes en clientes. Integramos esto con un **CRM a medida** respaldado por Supabase, permitiendo a la administración gestionar la agenda en tiempo real, sincronizar inventarios y automatizar el control financiero con dashboards gerenciales. El resultado: procesos 100% digitalizados y una imagen corporativa de alto impacto."
     }
   },
   {
