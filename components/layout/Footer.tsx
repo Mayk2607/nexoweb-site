@@ -3,6 +3,7 @@
 import { menuItems } from "../../config/data";
 import { Mail, Phone, ExternalLink } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -20,7 +21,15 @@ export function Footer() {
           
           {/* Brand & Info */}
           <div className="space-y-6">
-            <h3 className="text-2xl font-bold tracking-tight text-white">Nexoweb</h3>
+            <div className="mb-2">
+              <Image
+                src="/logo.png"
+                alt="Nexoweb"
+                width={160}
+                height={45}
+                className="h-10 w-auto object-contain brightness-0 invert"
+              />
+            </div>
             <p className="text-slate-400 text-sm leading-relaxed max-w-xs">
               Agencia de transformación digital corporativa. Especialistas en automatización, diseño de software y crecimiento exponencial.
             </p>

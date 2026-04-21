@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { cn } from "../../lib/utils";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import Image from "next/image";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
@@ -30,13 +31,20 @@ export function Header() {
     >
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
         <Link href="/" className="outline-none">
-          <motion.p
+          <motion.div
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
-            className="text-xl font-bold tracking-tight text-[#0f274f]"
+            className="flex items-center"
           >
-            Nexoweb
-          </motion.p>
+            <Image
+              src="/logo.png"
+              alt="Nexoweb"
+              width={160}
+              height={45}
+              className="h-10 w-auto object-contain"
+              priority
+            />
+          </motion.div>
         </Link>
         <motion.nav
           initial={{ opacity: 0, y: -10 }}
