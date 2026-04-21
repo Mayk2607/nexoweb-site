@@ -38,13 +38,13 @@ export function Header() {
             animate={{ opacity: 1, x: 0 }}
             className="flex items-center"
           >
-            <div className="flex items-center justify-center h-16 w-auto">
+            <div className="flex items-center justify-center h-20 w-auto">
               <Image
                 src="/logo.png"
                 alt="Nexoweb"
                 width={300}
                 height={300}
-                className="h-full w-auto object-contain scale-[1.6] origin-left"
+                className="h-full w-auto object-contain scale-[2.2] origin-left"
                 priority
               />
             </div>

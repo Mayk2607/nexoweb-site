@@ -22,13 +22,13 @@ export function Footer() {
           {/* Brand & Info */}
           <div className="space-y-6">
             <div className="flex items-center gap-2">
-              <div className="flex items-center justify-center h-16 w-auto">
+              <div className="flex items-center justify-center h-20 w-auto">
                 <Image
                   src="/logo.png"
                   alt="Nexoweb"
                   width={300}
                   height={300}
-                  className="h-full w-auto object-contain brightness-0 invert scale-[1.8] origin-left"
+                  className="h-full w-auto object-contain brightness-0 invert scale-[2.2] origin-left"
                 />
               </div>
             </div>
