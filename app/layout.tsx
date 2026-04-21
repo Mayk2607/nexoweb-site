@@ -13,9 +13,24 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexoweb V2 | Diseno y Automatizacion Digital",
+  title: "Nexoweb | Desarrollo Web, Software a la Medida y Soluciones B2B",
   description:
-    "Sitio de nueva generacion para Nexoweb. Diseno web, software, automatizacion y crecimiento digital.",
+    "Agencia experta en desarrollo web corporativo, software a medida, sistemas CRM y automatización. Diseñamos ecosistemas digitales para escalar negocios B2B.",
+  keywords: ["desarrollo web", "software a la medida", "CRM", "automatización B2B", "diseño corporativo", "agencia digital", "sistemas web"],
+  authors: [{ name: "Nexoweb" }],
+  openGraph: {
+    title: "Nexoweb | Desarrollo Web y Soluciones B2B",
+    description: "Digitalizamos y escalamos tu negocio con desarrollo web corporativo y sistemas a la medida.",
+    url: "https://nexoweb.mx",
+    siteName: "Nexoweb",
+    locale: "es_MX",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Nexoweb | Desarrollo Web y Software B2B",
+    description: "Digitalizamos y escalamos tu negocio con desarrollo web corporativo y sistemas a la medida.",
+  },
 };
 
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
