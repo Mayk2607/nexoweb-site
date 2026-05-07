@@ -21,7 +21,7 @@ export function Pricing() {
       </div>
 
       {/* START — EL PROTAGONISTA */}
-      <article className="mb-10 relative overflow-hidden rounded-3xl border-2 border-[#1c4a8f]/30 bg-gradient-to-br from-[#0f274f] via-[#1c4a8f] to-[#0f274f] p-6 md:p-10 text-white shadow-2xl">
+      <article className="mb-10 relative rounded-3xl border-2 border-[#1c4a8f]/30 bg-gradient-to-br from-[#0f274f] via-[#1c4a8f] to-[#0f274f] p-6 md:p-10 text-white shadow-2xl">
         <div className="absolute top-0 right-10 -translate-y-1/2 rounded-full bg-white px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#1c4a8f] shadow-xl border border-[#1c4a8f]/20 z-10">
           {startPlan.highlightLabel || "Más solicitado"}
         </div>
@@ -51,7 +51,7 @@ export function Pricing() {
           </div>
 
           {/* Características */}
-          <div className="flex-1 lg:max-w-md bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+          <div className="flex-1 lg:max-w-md lg:mt-8 bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
             <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-4 flex items-center gap-2">
               <Check className="h-3.5 w-3.5" /> Qué incluye tu éxito
             </p>
