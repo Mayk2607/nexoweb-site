@@ -22,7 +22,7 @@ export function Pricing() {
 
       {/* START — EL PROTAGONISTA */}
       <article className="mb-10 relative overflow-hidden rounded-3xl border-2 border-[#1c4a8f]/30 bg-gradient-to-br from-[#0f274f] via-[#1c4a8f] to-[#0f274f] p-6 md:p-10 text-white shadow-2xl">
-        <div className="absolute top-5 right-5 rounded-full bg-white/10 backdrop-blur-md px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] border border-white/20">
+        <div className="absolute top-0 right-10 -translate-y-1/2 rounded-full bg-white px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] text-[#1c4a8f] shadow-xl border border-[#1c4a8f]/20 z-10">
           {startPlan.highlightLabel || "Más solicitado"}
         </div>
         

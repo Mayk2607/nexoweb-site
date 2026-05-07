@@ -98,7 +98,7 @@ export function PlanComparison() {
                   <div className="flex flex-col items-center gap-2">
                     <Star className="h-6 w-6 text-yellow-400 fill-yellow-400" />
                     <div className="text-xl font-black text-white tracking-tight">{start.name}</div>
-                    <div className="text-lg font-bold text-white">{start.monthlyPrice}/mes</div>
+                    <div className="text-lg font-bold text-white">{start.monthlyPrice}</div>
                     <div className="text-[10px] font-black uppercase tracking-widest text-[#0f274f] bg-white px-2 py-0.5 rounded-full shadow-lg">
                       {start.highlightLabel}
                     </div>
@@ -110,7 +110,7 @@ export function PlanComparison() {
                   <div className="flex flex-col items-center gap-2">
                     <ShieldCheck className="h-6 w-6 text-slate-800" />
                     <div className="text-xl font-black text-slate-900 tracking-tight">{business.name}</div>
-                    <div className="text-lg font-bold text-[#1c4a8f]">{business.monthlyPrice}/mes</div>
+                    <div className="text-lg font-bold text-[#1c4a8f]">{business.monthlyPrice}</div>
                     <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                       Crecimiento
                     </div>
