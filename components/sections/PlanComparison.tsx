@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 /** Comparison Data with rich labels */
 const ROWS = [
-  { label: "Modelo Comercial",    express: "Pago único",                  start: "Mensualidad",        business: "Mensualidad" },
+  { label: "Modelo de Pago",    express: "Pago único",                  start: "Mensualidad",        business: "Mensualidad" },
   { label: "Configuración Inicial", express: expressPackage.price,          start: start.setupPrice,     business: business.setupPrice },
   { label: "Costo Mensual",       express: "—",                           start: start.monthlyPrice,   business: business.monthlyPrice },
   { label: "Estructura Web",      express: "Landing básica",              start: "Landing Pro",        business: "Multi-página" },
@@ -24,7 +24,7 @@ const ROWS = [
 function FeatureCell({ value, highlight }: { value: string | boolean; highlight?: boolean }) {
   if (value === true) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center md:justify-center">
         <div className={cn(
           "flex h-7 w-7 items-center justify-center rounded-full transition-transform hover:scale-110",
           highlight ? "bg-white text-[#1c4a8f] shadow-lg shadow-white/20" : "bg-emerald-100 text-emerald-600"
@@ -36,7 +36,7 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
   }
   if (value === false) {
     return (
-      <div className="flex justify-center">
+      <div className="flex justify-center md:justify-center">
         <div className={cn(
           "flex h-7 w-7 items-center justify-center rounded-full",
           highlight ? "bg-white/10 text-white/30" : "bg-slate-100 text-slate-300"
@@ -55,6 +55,7 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
     </span>
   );
 }
+
 
 
 
