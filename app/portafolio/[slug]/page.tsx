@@ -5,6 +5,8 @@ import { Footer } from "../../../components/layout/Footer";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { leadCaptureHref } from "@/lib/contact-intent";
+import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
 
 interface Props {
   params: Promise<{
@@ -160,12 +162,12 @@ export default async function PortfolioCasePage({ params }: Props) {
           <p className="text-blue-100 text-lg mb-10">
             Agenda una llamada de diagnóstico gratuita de 30 minutos. Analizaremos tus procesos y diseñaremos una solución digital a tu medida.
           </p>
-          <a
-            href="/#contacto"
+          <Link
+            href={leadCaptureHref({ servicio: "diagnostico" })}
             className="inline-block bg-white text-[#0f274f] font-bold px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-transform"
           >
-            Agendar diagnóstico
-          </a>
+            {getLeadCaptureCtaLabel("diagnostico")}
+          </Link>
         </div>
       </section>
 

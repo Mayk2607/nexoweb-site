@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,23 +7,14 @@ export function Blog() {
   return (
     <section id="blog" className="bg-[#f4f7fb] py-24 border-t border-slate-200">
       <div className="mx-auto max-w-7xl px-6">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mb-12 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-        >
+        <h2 className="mb-12 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
           Blog y Recursos
-        </motion.h2>
+        </h2>
 
         <div className="grid gap-6 md:grid-cols-3">
-          {blogPosts.map((post, i) => (
-            <motion.article
+          {blogPosts.map((post) => (
+            <article
               key={post.slug}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
               className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-[#1c4a8f]/30"
             >
               <div className="relative h-48 w-full overflow-hidden">
@@ -37,7 +25,7 @@ export function Blog() {
                   className="object-cover transition duration-300 group-hover:scale-105"
                 />
               </div>
-              
+
               <div className="flex flex-col flex-1 p-8">
                 <span className="mb-4 inline-block text-[10px] font-bold uppercase tracking-widest text-slate-400">
                   {post.date}
@@ -55,10 +43,10 @@ export function Blog() {
                   Leer artículo <ArrowRight className="h-4 w-4" />
                 </Link>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
-        
+
         <div className="mt-12 text-center">
           <Link
             href="/blog"

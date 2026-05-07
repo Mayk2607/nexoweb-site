@@ -8,83 +8,83 @@ const resend = resendApiKey ? new Resend(resendApiKey) : null;
 export async function POST(request: Request) {
   try {
     const data = await request.json();
-    const { name, phone, company, service, message } = data;
+    const { name, phone, email, company, service, message, primary_goal } = data;
 
-    if (!name || !phone || !service) {
+    if (!name || !phone || !email || !company || !service || !primary_goal) {
       return NextResponse.json(
         { error: "Faltan campos obligatorios" },
         { status: 400 }
       );
     }
 
-    // 1. Guardar en Supabase CRM
-    const { error: dbError } = await supabase
-      .from('leads')
-      .insert([
-        {
-          name,
-          phone,
-          company,
-          service,
-          message,
-          source: 'Website Contact Form',
-          status: 'new'
-        }
-      ]);
+    const { error: dbError } = await supabase.from("leads").insert([
+      {
+        name,
+        phone,
+        email,
+        company,
+        service,
+        message,
+        primary_goal,
+        source: "Website Contact Form",
+        status: "new",
+      },
+    ]);
 
     if (dbError) {
       console.error("Error guardando en Supabase:", dbError);
-      // No bloqueamos el envío de correo si falla Supabase, pero registramos el error
     }
 
-    // 2. Enviar correo interno a Nexoweb (Resend - opcional)
     try {
       if (resend) {
         await resend.emails.send({
-          from: 'Nexoweb CRM <onboarding@resend.dev>',
-          to: ['consultoria@nexoweb.mx'],
-          subject: `🔥 NUEVO LEAD: ${service} - ${name}`,
+          from: "Nexoweb CRM <onboarding@resend.dev>",
+          to: ["consultoria@nexoweb.mx"],
+          subject: `Nuevo lead: ${service} — ${name}`,
           html: `
-            <h2>Nuevo Prospecto desde la web</h2>
+            <h2>Prospecto desde el formulario web</h2>
             <p><strong>Nombre:</strong> ${name}</p>
-            <p><strong>Teléfono/WhatsApp:</strong> ${phone}</p>
-            <p><strong>Empresa:</strong> ${company || 'No especificada'}</p>
-            <p><strong>Servicio:</strong> ${service}</p>
+            <p><strong>Empresa:</strong> ${company}</p>
+            <p><strong>Correo:</strong> ${email}</p>
+            <p><strong>WhatsApp:</strong> ${phone}</p>
+            <p><strong>Servicio / interés:</strong> ${service}</p>
+            <p><strong>Objetivo principal:</strong> ${primary_goal}</p>
             <p><strong>Mensaje:</strong></p>
-            <blockquote>${message || 'Sin mensaje'}</blockquote>
-          `
+            <blockquote>${message || "Sin mensaje"}</blockquote>
+          `,
         });
       }
     } catch (emailError) {
       console.error("Error enviando correo interno:", emailError);
     }
 
-    // 3. Notificación instantánea vía Telegram
     const TELEGRAM_BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN;
     const TELEGRAM_CHAT_ID = process.env.TELEGRAM_CHAT_ID;
-    
+
     if (TELEGRAM_BOT_TOKEN && TELEGRAM_CHAT_ID) {
       const telegramMessage = `
-🔥 *NUEVO LEAD - NEXOWEB* 🔥
+*NUEVO LEAD — NEXOWEB*
 
-👤 *Nombre:* ${name}
-📱 *Teléfono:* ${phone}
-🏢 *Empresa:* ${company || 'No especificada'}
-🛠 *Servicio:* ${service}
+*Nombre:* ${name}
+*Empresa:* ${company}
+*Correo:* ${email}
+*WhatsApp:* ${phone}
+*Interés:* ${service}
+*Objetivo:* ${primary_goal}
 
-💬 *Mensaje:*
-_${message || 'Sin mensaje adicional'}_
+*Mensaje:*
+_${message || "Sin mensaje"}_
       `;
 
       try {
         await fetch(`https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage`, {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
           body: JSON.stringify({
             chat_id: TELEGRAM_CHAT_ID,
             text: telegramMessage,
-            parse_mode: 'Markdown'
-          })
+            parse_mode: "Markdown",
+          }),
         });
       } catch (tgError) {
         console.error("Error enviando Telegram:", tgError);
@@ -92,12 +92,8 @@ _${message || 'Sin mensaje adicional'}_
     }
 
     return NextResponse.json({ success: true });
-
   } catch (error) {
     console.error("Error procesando lead:", error);
-    return NextResponse.json(
-      { error: "Error interno del servidor" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Error interno del servidor" }, { status: 500 });
   }
 }

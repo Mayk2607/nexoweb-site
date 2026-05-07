@@ -4,6 +4,8 @@ import { Header } from "../../../components/layout/Header";
 import { Footer } from "../../../components/layout/Footer";
 import { CheckCircle2, ArrowRight } from "lucide-react";
 import Link from "next/link";
+import { leadCaptureHref } from "@/lib/contact-intent";
+import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
 
 interface Props {
   params: Promise<{
@@ -130,12 +132,15 @@ export default async function ServicePage({ params }: Props) {
                   </ul>
 
                   <div className="mt-8 flex-shrink-0">
-                    <a
-                      href="/#contacto"
+                    <Link
+                      href={leadCaptureHref({
+                        servicio: service.slug,
+                        nota: `Plan: ${plan.name}`,
+                      })}
                       className="block w-full text-center py-3 px-4 rounded-xl font-bold text-sm bg-[#1c4a8f] text-white shadow-lg shadow-[#1c4a8f]/25 hover:bg-[#0f274f] hover:-translate-y-0.5 transition-all"
                     >
-                      Me interesa este plan
-                    </a>
+                      {getLeadCaptureCtaLabel(service.slug)}
+                    </Link>
                   </div>
                 </div>
               ))}
@@ -153,12 +158,12 @@ export default async function ServicePage({ params }: Props) {
           <p className="text-blue-100 text-lg mb-10">
             Agenda una llamada de diagnóstico gratuita de 30 minutos y construyamos un plan exacto para tus objetivos comerciales.
           </p>
-          <a
-            href="/#contacto"
+          <Link
+            href={leadCaptureHref({ servicio: service.slug })}
             className="inline-block bg-white text-[#0f274f] font-bold px-8 py-4 rounded-xl shadow-xl hover:scale-105 transition-transform"
           >
-            Agendar diagnóstico
-          </a>
+            {getLeadCaptureCtaLabel(service.slug)}
+          </Link>
         </div>
       </section>
 

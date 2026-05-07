@@ -1,7 +1,7 @@
 import { createClient } from '@/lib/supabase/server'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { ArrowLeft, Mail, Phone, Building2, Clock, Send } from 'lucide-react'
+import { ArrowLeft, Mail, Phone, Building2, Clock, Send, Target } from 'lucide-react'
 import { format } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { updateLeadStatus, addLeadNote, updateLeadDetails } from './actions'
@@ -96,10 +96,36 @@ export default async function LeadDetailPage({
                 </div>
               </div>
               <div className="flex items-start space-x-3">
+                <Mail className="h-5 w-5 text-gray-400 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Correo</p>
+                  {lead.email ? (
+                    <a href={`mailto:${lead.email}`} className="text-[#0a1224] font-medium hover:text-blue-600 transition-colors">
+                      {lead.email}
+                    </a>
+                  ) : (
+                    <p className="text-gray-400 text-sm">— No proporcionado</p>
+                  )}
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
                 <Building2 className="h-5 w-5 text-gray-400 mt-0.5" />
                 <div>
                   <p className="text-sm font-medium text-gray-500">Empresa</p>
                   <p className="text-[#0a1224] font-medium">{lead.company || 'No especificada'}</p>
+                </div>
+              </div>
+              <div className="flex items-start space-x-3">
+                <Target className="h-5 w-5 text-gray-400 mt-0.5" />
+                <div>
+                  <p className="text-sm font-medium text-gray-500">Objetivo Principal</p>
+                  {lead.primary_goal ? (
+                    <span className="inline-block mt-0.5 px-2.5 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-semibold text-blue-700">
+                      {lead.primary_goal}
+                    </span>
+                  ) : (
+                    <p className="text-gray-400 text-sm">— No especificado</p>
+                  )}
                 </div>
               </div>
               <div className="flex items-start space-x-3 md:col-span-2">

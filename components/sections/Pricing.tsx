@@ -1,143 +1,129 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { plans, webPackages } from "../../config/data";
-import { Check, Calendar } from "lucide-react";
+import { webPackages } from "../../config/data";
+import { Check, Calendar, Sparkles, ArrowRight } from "lucide-react";
 import { cn } from "../../lib/utils";
-import { useState } from "react";
+import Link from "next/link";
+import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
+import { leadCaptureHref } from "@/lib/contact-intent";
 
 export function Pricing() {
-  const [activeTab, setActiveTab] = useState<"web" | "global">("web");
-
-  const currentPlans = activeTab === "web" ? webPackages : plans;
+  const startPlan = webPackages[0];
+  const secondaryPlans = webPackages.slice(1, 4);
 
   return (
-    <section id="paquetes" className="mx-auto max-w-7xl px-6 py-24">
-      <div className="mb-12 text-center max-w-2xl mx-auto">
-        <motion.h2
-          initial={{ opacity: 0, y: -20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="text-3xl font-bold tracking-tight text-slate-900 md:text-4xl"
-        >
-          Paquetes y planes a la medida
-        </motion.h2>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="mt-4 text-slate-600"
-        >
-          Desde la presencia web de un negocio local, hasta ecosistemas 360 corporativos. 
-          Desarrollamos soluciones reales (sin plantillas) para cada etapa de tu empresa.
-        </motion.p>
+    <section id="paquetes" className="mx-auto max-w-7xl px-6 pt-16 pb-10">
+      <div className="mb-10 text-center max-w-2xl mx-auto">
+        <h2 className="text-3xl font-black tracking-tight text-slate-900 md:text-4xl">
+          Modelos para dominar tu sector
+        </h2>
+        <p className="mt-3 text-slate-600 text-sm md:text-base">
+          Arranca con una base profesional y escala conforme tu negocio lo necesite. Sin complicaciones técnicas.
+        </p>
       </div>
 
-      <div className="flex justify-center mb-12">
-        <div className="bg-slate-100 p-1.5 rounded-full inline-flex border border-slate-200 overflow-x-auto w-full max-w-fit justify-start md:justify-center flex-nowrap">
-          <button
-            onClick={() => setActiveTab("web")}
-            className={cn(
-              "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap",
-              activeTab === "web"
-                ? "bg-white text-[#1c4a8f] shadow-sm"
-                : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
-            )}
-          >
-            Web + Hosting (Pymes)
-          </button>
-          <button
-            onClick={() => setActiveTab("global")}
-            className={cn(
-              "px-6 py-2.5 rounded-full text-sm font-semibold transition-all duration-300 whitespace-nowrap",
-              activeTab === "global"
-                ? "bg-white text-[#1c4a8f] shadow-sm"
-                : "text-slate-500 hover:text-slate-700 hover:bg-slate-200/50"
-            )}
-          >
-            Ecosistema 360 (Corporativo)
-          </button>
+      {/* START — EL PROTAGONISTA */}
+      <article className="mb-10 relative overflow-hidden rounded-3xl border-2 border-[#1c4a8f]/30 bg-gradient-to-br from-[#0f274f] via-[#1c4a8f] to-[#0f274f] p-6 md:p-10 text-white shadow-2xl">
+        <div className="absolute top-5 right-5 rounded-full bg-white/10 backdrop-blur-md px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.2em] border border-white/20">
+          {startPlan.highlightLabel || "Más solicitado"}
         </div>
-      </div>
+        
+        <div className="flex flex-col lg:flex-row lg:items-center gap-8 md:gap-12">
+          {/* Info Principal */}
+          <div className="flex-1">
+            <p className="inline-flex items-center gap-2 rounded-full bg-[#1c4a8f] px-3 py-1 text-[10px] font-bold uppercase tracking-[0.16em] mb-4">
+              <Sparkles className="h-3 w-3" /> Solución Recomendada
+            </p>
+            <h3 className="text-4xl md:text-5xl font-black tracking-tight">{startPlan.name}</h3>
+            <p className="mt-3 text-blue-100 max-w-xl text-sm md:text-base leading-relaxed">
+              {startPlan.summary}
+            </p>
 
-      <div className="grid gap-8 lg:grid-cols-3 items-stretch">
-        {currentPlans.map((plan, i) => (
-          <motion.article
-            key={plan.name}
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1 }}
-            className={cn(
-              "relative rounded-3xl bg-white p-8 shadow-xl shadow-slate-200/50 flex flex-col h-full transition-transform",
-              (plan as any).highlighted
-                ? "border-2 border-[#1c4a8f] scale-100 lg:scale-105 z-10"
-                : "border border-slate-200 mt-0 lg:mt-4 lg:mb-4"
-            )}
-          >
-            {(plan as any).highlighted && (
-              <div className="absolute -top-4 left-1/2 -translate-x-1/2 rounded-full bg-gradient-to-r from-[#0f274f] to-[#1c4a8f] px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-white shadow-lg whitespace-nowrap">
-                Recomendado
+            <div className="mt-8 flex flex-wrap gap-x-8 gap-y-4">
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200/70">Inversión inicial</p>
+                <p className="text-3xl font-black">{startPlan.setupPrice}</p>
               </div>
-            )}
-            
-            <div className="mb-6 flex-shrink-0">
-              <h3 className="text-2xl font-extrabold text-slate-900">{plan.name}</h3>
-              <p className="mt-2 text-sm font-semibold text-[#1c4a8f]">{plan.idealFor}</p>
-              {/* min-h to align summaries even if text wraps differently */}
-              <p className="mt-3 text-sm leading-relaxed text-slate-600 min-h-[4.5rem]">
-                {plan.summary}
-              </p>
+              <div className="h-10 w-px bg-white/10 hidden sm:block" />
+              <div>
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-200/70">Mantenimiento mensual</p>
+                <p className="text-3xl font-black">{startPlan.monthlyPrice}</p>
+              </div>
             </div>
+          </div>
 
-            <div className="mb-8 rounded-2xl bg-slate-50 p-5 border border-slate-100 flex-shrink-0">
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">
-                Inversión inicial
-              </p>
-              <p className="text-3xl font-black text-slate-900">{plan.setupPrice}</p>
-              
-              <div className="my-4 h-px w-full bg-slate-200" />
-              
-              <p className="text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-1">
-                {activeTab === "web" ? "Suscripción / Mantenimiento" : "Gestión Mensual"}
-              </p>
-              <p className="text-lg font-bold text-[#0f274f]">{plan.monthlyPrice}</p>
-            </div>
-
-            <div className="flex-1 space-y-6">
-              {plan.breakdown.map((group) => (
-                <div key={group.title}>
-                  <p className="text-sm font-bold text-slate-900 mb-3">{group.title}</p>
-                  <ul className="space-y-2.5">
-                    {group.items.map((item) => (
-                      <li key={item} className="flex items-start gap-3 text-sm text-slate-600">
-                        <Check className="mt-0.5 h-4 w-4 shrink-0 text-[#1c4a8f]" strokeWidth={3} />
-                        <span className="leading-snug">{item}</span>
-                      </li>
-                    ))}
-                  </ul>
+          {/* Características */}
+          <div className="flex-1 lg:max-w-md bg-white/5 rounded-2xl p-6 backdrop-blur-sm border border-white/10">
+            <p className="text-[11px] font-bold uppercase tracking-widest text-blue-200 mb-4 flex items-center gap-2">
+              <Check className="h-3.5 w-3.5" /> Qué incluye tu éxito
+            </p>
+            <div className="grid gap-3 sm:grid-cols-1">
+              {startPlan.breakdown.flatMap((group) => group.items).slice(0, 6).map((item) => (
+                <div key={item} className="flex items-start gap-2.5 text-xs text-blue-50 font-medium">
+                  <Check className="h-3.5 w-3.5 mt-0.5 shrink-0 text-emerald-400" />
+                  <span>{item}</span>
                 </div>
               ))}
             </div>
+          </div>
+        </div>
 
-            <div className="mt-8 pt-8 flex-shrink-0">
-              <a
-                href={(plan as any).buttonLink || "#contacto"}
-                target={(plan as any).buttonLink?.startsWith("http") ? "_blank" : "_self"}
-                rel={(plan as any).buttonLink?.startsWith("http") ? "noopener noreferrer" : ""}
-                className={cn(
-                  "flex w-full items-center justify-center gap-2 rounded-xl px-4 py-3.5 text-sm font-bold transition-all shadow-md hover:shadow-lg hover:-translate-y-0.5",
-                  (plan as any).highlighted
-                    ? "bg-gradient-to-r from-[#0f274f] to-[#1c4a8f] text-white"
-                    : "bg-white text-slate-900 border border-slate-200 hover:bg-slate-50 hover:border-slate-300"
-                )}
-              >
-                <Calendar className="w-4 h-4" />
-                {(plan as any).buttonText || "Agendar cita"}
-              </a>
+        <div className="mt-10 flex flex-col md:flex-row md:items-center gap-6 border-t border-white/10 pt-8">
+          <Link
+            href={leadCaptureHref({ servicio: "nexoweb-start" })}
+            className="inline-flex items-center justify-center gap-2 rounded-xl bg-white px-8 py-4 text-sm font-black text-[#0f274f] transition hover:bg-blue-50 hover:scale-[1.02] active:scale-[0.98] shadow-lg shadow-black/20"
+          >
+            <Calendar className="w-4 h-4" /> {getLeadCaptureCtaLabel("nexoweb-start")}
+          </Link>
+          <div className="flex flex-wrap gap-4">
+            {(startPlan.trust || []).map((line: string) => (
+              <span key={line} className="text-[10px] font-bold uppercase tracking-widest text-blue-200/60">
+                • {line}
+              </span>
+            ))}
+          </div>
+        </div>
+      </article>
+
+      {/* Otros planes — más discretos */}
+      <div className="grid gap-6 lg:grid-cols-3 mb-6">
+        {secondaryPlans.map((plan) => (
+          <article
+            key={plan.name}
+            className={cn(
+              "relative rounded-2xl bg-white p-6 shadow-sm border transition-all hover:shadow-md flex flex-col",
+              plan.highlighted ? "border-[#1c4a8f]/30 ring-4 ring-[#1c4a8f]/5" : "border-slate-200/60"
+            )}
+          >
+            <div className="flex items-center justify-between mb-3">
+              <h3 className="text-base font-black text-slate-900 tracking-tight">{plan.name}</h3>
+              {plan.highlightLabel && (
+                <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[9px] font-bold uppercase tracking-widest text-slate-500">
+                  {plan.highlightLabel}
+                </span>
+              )}
             </div>
-          </motion.article>
+            <p className="text-xs text-slate-500 mb-4 line-clamp-2">{plan.summary}</p>
+            
+            <div className="mb-5 flex items-baseline gap-2">
+              <span className="text-xl font-black text-slate-900">{plan.setupPrice}</span>
+              <span className="text-[10px] font-bold text-slate-400">setup</span>
+            </div>
+
+            <Link
+              href={plan.buttonLink}
+              className={cn(
+                "mt-auto inline-flex items-center justify-center gap-1.5 rounded-lg py-2.5 text-[11px] font-black transition uppercase tracking-wider",
+                plan.highlighted
+                  ? "bg-[#1c4a8f] text-white"
+                  : "bg-slate-100 text-slate-600 hover:bg-slate-200"
+              )}
+            >
+              {getLeadCaptureCtaLabel(plan.buttonLink.match(/servicio=([^#&]+)/)?.[1] ?? null)}
+              <ArrowRight className="w-3 h-3" />
+            </Link>
+          </article>
         ))}
       </div>
     </section>
   );
 }
+

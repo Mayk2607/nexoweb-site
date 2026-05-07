@@ -4,6 +4,7 @@ import { menuItems } from "../../config/data";
 import { Mail, Phone, ExternalLink } from "lucide-react";
 import Link from "next/link";
 import Image from "next/image";
+import { leadCaptureHref } from "@/lib/contact-intent";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
@@ -98,15 +99,20 @@ export function Footer() {
               </li>
             </ul>
             
-            {/* Direct CTA */}
-            <div className="mt-8">
-              <a 
-                href={whatsappUrl}
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-[#25D366] text-white text-sm font-bold shadow-lg shadow-[#25D366]/20 hover:scale-105 transition-transform"
+            <div className="mt-8 space-y-3">
+              <Link
+                href={leadCaptureHref({ servicio: "diagnostico" })}
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl bg-[#1c4a8f] px-5 py-3 text-sm font-bold text-white shadow-lg shadow-[#1c4a8f]/25 transition hover:bg-[#2c63b8] sm:w-auto"
               >
-                Chatear por WhatsApp
+                Solicitar información
+              </Link>
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-xl border border-white/15 bg-white/5 px-5 py-3 text-sm font-semibold text-slate-300 transition hover:bg-white/10 sm:w-auto"
+              >
+                WhatsApp (rápido)
                 <ExternalLink className="w-4 h-4" />
               </a>
             </div>

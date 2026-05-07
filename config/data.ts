@@ -21,9 +21,9 @@ export const services = [
       "Narrativa y voz de marca"
     ],
     individualPlans: [
-      { name: "Brand Starter", price: "$8,500 MXN", features: ["Diseño de Logotipo profesional (2 propuestas)", "Paleta de colores corporativa", "Selección de tipografías primarias", "Mini-manual de uso de marca", "1 Ronda de revisión"] },
-      { name: "Brand Corporate", price: "$18,900 MXN", features: ["Todo el plan Starter", "Manual de identidad corporativo completo", "Diseño de 10 plantillas para Redes Sociales", "Papelería digital (Firma de correo, hojas membretadas)", "3 Rondas de revisión"] },
-      { name: "Brand 360 Premium", price: "$34,900 MXN", features: ["Todo el plan Corporate", "Brandbook interactivo y guía de estilo", "Estrategia de voz y tono de marca", "Lineamientos de fotografía corporativa", "Diseño de empaque o merchandising", "Revisiones ilimitadas en etapa de boceto"] }
+      { name: "Identidad Start", price: "$8,500 MXN", features: ["Diseño de Logotipo profesional (2 propuestas)", "Paleta de colores corporativa", "Selección de tipografías primarias", "Mini-manual de uso de marca", "1 Ronda de revisión"] },
+      { name: "Brand Pro", price: "$18,900 MXN", features: ["Todo el plan Starter", "Manual de identidad corporativo completo", "Diseño de 10 plantillas para Redes Sociales", "Papelería digital (Firma de correo, hojas membretadas)", "3 Rondas de revisión"] },
+      { name: "Brand System 360", price: "$34,900 MXN", features: ["Todo el plan Corporate", "Brandbook interactivo y guía de estilo", "Estrategia de voz y tono de marca", "Lineamientos de fotografía corporativa", "Diseño de empaque o merchandising", "Revisiones ilimitadas en etapa de boceto"] }
     ],
     image: "/assets/branding_service.png"
   },
@@ -39,9 +39,9 @@ export const services = [
       "Dominio .com gratis en todos los planes anuales"
     ],
     individualPlans: [
-      { name: "Hosting Básico", price: "$1,490 MXN/año", features: ["10GB SSD NVMe", "Certificado SSL de seguridad incluido", "Hasta 5 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups semanales", "Soporte técnico (L-V)"] },
-      { name: "Hosting Avanzado", price: "$3,490 MXN/año", features: ["50GB SSD NVMe de máxima velocidad", "Certificado SSL Premium", "Hasta 20 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups diarios automáticos", "Optimización de caché LiteSpeed"] },
-      { name: "VPS Dedicado", price: "$8,900 MXN/año", features: ["Servidor Privado (2 vCPU, 4GB RAM)", "Recursos aislados 100% para tu empresa", "Cuentas de correo ilimitadas", "Dominio .com GRATIS (1er año)", "IP Dedicada", "Soporte prioritario y monitoreo 24/7"] }
+      { name: "Essential", price: "$1,490 MXN/año", features: ["10GB SSD NVMe", "Certificado SSL de seguridad incluido", "Hasta 5 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups semanales", "Soporte técnico (L-V)"] },
+      { name: "Business Hosting", price: "$3,490 MXN/año", features: ["50GB SSD NVMe de máxima velocidad", "Certificado SSL Premium", "Hasta 20 cuentas de correo corporativo", "Dominio .com GRATIS (1er año)", "Backups diarios automáticos", "Optimización de caché LiteSpeed"] },
+      { name: "VPS Managed", price: "$8,900 MXN/año", features: ["Servidor Privado (2 vCPU, 4GB RAM)", "Recursos aislados 100% para tu empresa", "Cuentas de correo ilimitadas", "Dominio .com GRATIS (1er año)", "IP Dedicada", "Soporte prioritario y monitoreo 24/7"] }
     ],
     image: "/assets/hosting_service.png"
   },
@@ -57,9 +57,9 @@ export const services = [
       "Integración con WhatsApp y formularios"
     ],
     individualPlans: [
-      { name: "Landing Page", price: "$8,900 MXN", features: ["Diseño One-Page orientado a conversión", "Estructura narrativa y Copywriting básico", "Formulario de captación de prospectos", "Botón flotante de WhatsApp", "Hosting 1 año incluido", "Integración básica de analíticas"] },
-      { name: "Web Corporativa", price: "$16,900 MXN", features: ["Sitio multi-página (Hasta 5 secciones)", "Diseño de interfaz premium personalizado", "Módulo de Blog integrado", "Estrategia SEO On-Page", "Panel autoadministrable", "Hosting 1 año incluido"] },
-      { name: "E-commerce Avanzado", price: "$32,900 MXN", features: ["Catálogo de productos online", "Integración de pasarelas de pago (Stripe, PayPal, MercadoPago)", "Perfiles de usuario y carritos abandonados", "Optimización extrema (Core Web Vitals)", "Capacitación de uso de plataforma", "Mantenimiento gratuito 1 mes"] }
+      { name: "Landing Page", price: "$5,900 MXN", features: ["Diseño One-Page orientado a conversión", "Estructura narrativa y Copywriting básico", "Formulario de captación de prospectos", "Botón flotante de WhatsApp", "Hosting 1 año incluido", "Integración básica de analíticas"] },
+      { name: "Web Corporativa", price: "$11,900 MXN", features: ["Sitio multi-página (Hasta 5 secciones)", "Diseño de interfaz premium personalizado", "Módulo de Blog integrado", "Estrategia SEO On-Page", "Panel autoadministrable", "Hosting 1 año incluido"] },
+      { name: "E-commerce Avanzado", price: "Desde $24,900 MXN", features: ["Catálogo de productos online", "Integración de pasarelas de pago (Stripe, PayPal, MercadoPago)", "Perfiles de usuario y carritos abandonados", "Optimización extrema (Core Web Vitals)", "Capacitación de uso de plataforma", "Mantenimiento gratuito 1 mes"] }
     ],
     image: "/assets/webdesign_service.png"
   },
@@ -75,9 +75,9 @@ export const services = [
       "Integración de pasarelas de pago"
     ],
     individualPlans: [
-      { name: "Setup CRM Base", price: "$14,900 MXN", features: ["Mapeo y configuración de embudos de venta", "Importación de base de datos de prospectos", "Conexión con formularios del sitio web", "Reglas básicas de asignación de leads", "Reporte estándar de desempeño", "Capacitación a equipo comercial (2 hrs)"] },
-      { name: "CRM + Automatización", price: "$29,900 MXN", features: ["Todo el Setup Base", "Automatizaciones avanzadas (Email y WhatsApp)", "Módulo de seguimiento y recordatorios automáticos", "Dashboards y gráficas personalizadas en tiempo real", "Integración con calendarios (Calendly/Google)", "Soporte post-implementación"] },
-      { name: "Desarrollo a Medida", price: "Desde $55,000 MXN", features: ["Desarrollo de módulos operativos propios", "Conexión de datos mediante APIs externas", "Creación de portal privado de clientes", "Arquitectura escalable en la nube (Serverless)", "Auditoría de seguridad", "Soporte y mantenimiento continuo"] }
+      { name: "CRM Base", price: "$19,900 MXN", features: ["Mapeo y configuración de embudos de venta", "Importación de base de datos de prospectos", "Conexión con formularios del sitio web", "Reglas básicas de asignación de leads", "Reporte estándar de desempeño", "Capacitación a equipo comercial (2 hrs)"] },
+      { name: "CRM + Automatización", price: "$39,900 MXN", features: ["Todo el Setup Base", "Automatizaciones avanzadas (Email y WhatsApp)", "Módulo de seguimiento y recordatorios automáticos", "Dashboards y gráficas personalizadas en tiempo real", "Integración con calendarios (Calendly/Google)", "Soporte post-implementación"] },
+      { name: "Desarrollo a Medida", price: "Desde $75,000 MXN", features: ["Desarrollo de módulos operativos propios", "Conexión de datos mediante APIs externas", "Creación de portal privado de clientes", "Arquitectura escalable en la nube (Serverless)", "Auditoría de seguridad", "Soporte y mantenimiento continuo"] }
     ],
     image: "/assets/crm_service.png"
   },
@@ -111,9 +111,9 @@ export const services = [
       "Reportes ejecutivos de rendimiento"
     ],
     individualPlans: [
-      { name: "Ads Manager", price: "$6,500 MXN/mes", features: ["Gestión exclusiva de Google Ads o Meta Ads", "Estructuración de hasta 2 campañas activas", "Optimización semanal de presupuesto y Costo por Clic", "Configuración de píxeles de rastreo", "Reporte ejecutivo mensual", "(Nota: No incluye diseño gráfico)"] },
-      { name: "Growth Digital", price: "$14,900 MXN/mes", features: ["Gestión de múltiples campañas (Google y Meta)", "Creación de 12 diseños/posts mensuales para RRSS", "Copywriting persuasivo para anuncios", "Campañas de Retargeting a visitantes de la web", "Gestión básica de comunidad (Respuestas en redes)", "Sesión estratégica de revisión mensual"] },
-      { name: "Dirección Mkt 360", price: "$28,900 MXN/mes", features: ["Estrategia omnicanal (Ads, SEO, Email Marketing)", "Embudos automatizados de captación de leads", "Producción de creativos (Incluye edición de video corto)", "Publicaciones ilimitadas planificadas estratégicamente", "Reportes en tiempo real y KPIs de negocio", "Reuniones quincenales de alineación comercial"] }
+      { name: "Ads Starter", price: "$4,900 MXN/mes", features: ["Gestión exclusiva de Google Ads o Meta Ads", "Estructuración de hasta 2 campañas activas", "Optimización semanal de presupuesto y Costo por Clic", "Configuración de píxeles de rastreo", "Reporte ejecutivo mensual", "(Nota: No incluye diseño gráfico)"] },
+      { name: "Growth Marketing", price: "$9,900 MXN/mes", features: ["Gestión de múltiples campañas (Google y Meta)", "Creación de 12 diseños/posts mensuales para RRSS", "Copywriting persuasivo para anuncios", "Campañas de Retargeting a visitantes de la web", "Gestión básica de comunidad (Respuestas en redes)", "Sesión estratégica de revisión mensual"] },
+      { name: "Marketing 360", price: "Desde $19,900 MXN/mes", features: ["Estrategia omnicanal (Ads, SEO, Email Marketing)", "Embudos automatizados de captación de leads", "Producción de creativos (Incluye edición de video corto)", "Publicaciones ilimitadas planificadas estratégicamente", "Reportes en tiempo real y KPIs de negocio", "Reuniones quincenales de alineación comercial"] }
     ],
     image: "/assets/marketing_service.png"
   },
@@ -135,6 +135,29 @@ export const services = [
     ],
     image: "/assets/payments_service.png"
   }
+];
+
+export const serviceCategories = [
+  {
+    title: "Sitios Web",
+    description: "Web lista para generar contactos.",
+    points: ["Landing / corporativa", "Copy + CTAs", "WhatsApp y formularios"],
+  },
+  {
+    title: "Marketing y Captación",
+    description: "Tráfico y seguimiento comercial.",
+    points: ["Ads Google / Meta", "Retargeting", "Mejora continua"],
+  },
+  {
+    title: "Sistemas y Automatización",
+    description: "Orden en leads y menos trabajo manual.",
+    points: ["CRM comercial", "Automatizaciones", "Reportes claros"],
+  },
+  {
+    title: "Infraestructura y Soporte",
+    description: "Lo técnico resuelto, tú enfocado al negocio.",
+    points: ["Hosting administrado", "SSL + dominio", "Soporte en México"],
+  },
 ];
 
 export const process = [
@@ -285,64 +308,122 @@ export const plans = [
 
 export const webPackages = [
   {
-    name: "Starter (Web en Renta)",
-    idealFor: "Negocios locales y emprendedores",
-    summary: "Tu página web profesional sin descapitalizarte. Diseñada a la medida y con mantenimiento incluido para que nunca se vuelva obsoleta.",
-    setupPrice: "$990 MXN",
-    monthlyPrice: "$890 MXN/mes",
+    name: "NEXOWEB START",
+    idealFor: "Ideal para emprendedores y negocios locales",
+    summary: "Tu negocio online desde hoy, sin pagar desarrollos enormes y sin complicaciones técnicas.",
+    setupPrice: "$2,990 MXN",
+    monthlyPrice: "$690 MXN/mes",
     breakdown: [
       {
-        title: "Diseño Web y Tecnología",
-        items: ["Landing Page estructurada (One-Page)", "Diseño a la medida (Cero plantillas)", "Integración de WhatsApp para ventas"],
+        title: "Incluye",
+        items: ["Landing profesional", "Hasta 4 secciones", "Diseño responsive", "Recibe clientes directo en WhatsApp", "Formulario de contacto"],
       },
       {
-        title: "Mantenimiento y Hosting (Incluido)",
-        items: ["Hosting de Alta Velocidad y SSL", "Dominio .com GRATIS (mientras dure el plan)", "1 Hora de cambios o soporte al mes"],
+        title: "Operación mensual",
+        items: ["Hosting administrado", "SSL", "Dominio 1 año", "1 cambio mensual", "Soporte básico"],
       },
     ],
-    buttonText: "Contratar y empezar",
-    buttonLink: "https://wa.me/528447502607?text=Hola,%20quiero%20contratar%20el%20Plan%20Starter%20de%20%24890%20al%20mes.%20%C2%BFMe%20puedes%20pasar%20el%20link%20de%20pago?",
+    highlightLabel: "Más solicitado",
+    trust: ["Sin pagar desarrollos enormes", "Ideal para negocios locales", "Soporte real en México", "Sin complicaciones técnicas"],
+    buttonText: "Solicitar información",
+    buttonLink: "/?servicio=nexoweb-start#contacto",
   },
   {
-    name: "Negocio (Web + Soporte)",
+    name: "BUSINESS",
     idealFor: "Pymes en crecimiento",
-    summary: "Sitio web corporativo completo, correos empresariales y un equipo técnico respaldando tu presencia online mes a mes.",
-    setupPrice: "$1,990 MXN",
+    summary: "Una base comercial más fuerte para generar confianza y cerrar mejor.",
+    setupPrice: "$7,900 MXN",
     monthlyPrice: "$1,490 MXN/mes",
     breakdown: [
       {
-        title: "Web Corporativa (Hasta 5 Secciones)",
-        items: ["Diseño multi-página (Inicio, Servicios, etc.)", "Optimización SEO On-Page Básica", "Formularios de contacto dinámicos"],
+        title: "Incluye",
+        items: ["Sitio multi página", "SEO básico", "Correos empresariales", "Blog"],
       },
       {
-        title: "Ecosistema y Mantenimiento",
-        items: ["Hosting Avanzado NVMe", "Hasta 5 cuentas de correo corporativo", "Actualizaciones de seguridad y respaldos", "2 Horas de cambios o soporte al mes"],
+        title: "Operación mensual",
+        items: ["Soporte prioritario", "Hasta 2 horas de soporte mensual", "Mantenimiento continuo"],
       },
     ],
     highlighted: true,
-    buttonText: "Contratar y empezar",
-    buttonLink: "https://wa.me/528447502607?text=Hola,%20quiero%20contratar%20el%20Plan%20Negocio%20de%20%241%2C490%20al%20mes.%20%C2%BFMe%20puedes%20pasar%20el%20link%20de%20pago?",
+    highlightLabel: "Más recomendado",
+    buttonText: "Solicitar información",
+    buttonLink: "/?servicio=plan-business#contacto",
   },
   {
-    name: "Growth (Catálogo / CRM)",
-    idealFor: "Empresas con enfoque agresivo en ventas",
-    summary: "Para empresas que necesitan catálogos, cobrar en línea o conectar su web a un sistema CRM de gestión de leads.",
-    setupPrice: "$4,900 MXN",
+    name: "GROWTH",
+    idealFor: "Negocios que buscan ventas y automatización",
+    summary: "Integra captación, operación y automatización para crecer con control.",
+    setupPrice: "$14,900 MXN",
     monthlyPrice: "$2,990 MXN/mes",
     breakdown: [
       {
-        title: "Catálogo o Sistema Integrado",
-        items: ["Catálogo de productos o integraciones a medida", "Pasarelas de pago o conexión a CRM", "Panel autoadministrable"],
+        title: "Incluye",
+        items: ["Catálogo o mini ecommerce", "Integración CRM básica", "Captación de leads", "Automatizaciones iniciales"],
       },
       {
-        title: "Infraestructura Premium",
-        items: ["Hosting Premium para alto tráfico", "Correos corporativos ilimitados", "Soporte Técnico prioritario (SLA rápido)"],
+        title: "Operación mensual",
+        items: ["Dashboard básico", "Integración campañas", "Soporte técnico prioritario"],
       },
     ],
-    buttonText: "Contratar y empezar",
-    buttonLink: "https://wa.me/528447502607?text=Hola,%20quiero%20contratar%20el%20Plan%20Growth%20de%20%242%2C990%20al%20mes.%20%C2%BFMe%20puedes%20pasar%20el%20link%20de%20pago?",
+    buttonText: "Solicitar información",
+    buttonLink: "/?servicio=plan-growth#contacto",
+  },
+  {
+    name: "CORPORATE 360",
+    idealFor: "Empresas con procesos complejos y visión de expansión",
+    summary: "Automatización, infraestructura, CRM y marketing estratégico en una sola solución.",
+    setupPrice: "Desde $29,900 MXN",
+    monthlyPrice: "A medida",
+    breakdown: [
+      {
+        title: "Incluye",
+        items: ["Automatización de procesos", "CRM avanzado", "Marketing + infraestructura integrados"],
+      },
+      {
+        title: "Modalidad",
+        items: ["Implementación por fases", "Roadmap comercial", "Acompañamiento continuo"],
+      },
+    ],
+    buttonText: "Solicitar propuesta",
+    buttonLink: "/?servicio=plan-corporate-360#contacto",
   },
 ];
+
+/**
+ * NEXOWEB EXPRESS — Pago único
+ * Plan económico para negocios que solo necesitan presencia online.
+ * NO debe competir visualmente con NEXOWEB START.
+ */
+export const expressPackage = {
+  name: "NEXOWEB EXPRESS",
+  tagline: "Presencia online rápida y profesional",
+  price: "$3,199 MXN",
+  priceSuffix: "pago único",
+  idealFor: "Ideal para negocios que solo necesitan presencia online rápida y profesional.",
+  microcopy: "Cambios posteriores, soporte y nuevas funcionalidades se cotizan por separado.",
+  deliveryTime: "Entrega en 5–7 días hábiles",
+  includes: [
+    "Landing page básica (1 página)",
+    "Diseño responsive (móvil y escritorio)",
+    "WhatsApp integrado",
+    "Formulario de contacto",
+    "SSL incluido",
+    "Hosting 1 año",
+    "Dominio 1 año",
+    "Entrega rápida",
+  ],
+  notIncludes: [
+    "Cambios posteriores",
+    "Soporte mensual",
+    "SEO",
+    "Ecommerce",
+    "Automatizaciones",
+    "CRM",
+    "Correos empresariales",
+  ],
+  buttonLink: "/?servicio=nexoweb-express#contacto",
+};
+
 
 export const ecosystemLayers = [
   {

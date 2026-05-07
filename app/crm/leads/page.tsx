@@ -39,6 +39,7 @@ export default async function LeadsPage() {
               <tr className="bg-gray-50 border-b border-gray-100 text-sm text-gray-500 uppercase tracking-wider">
                 <th className="px-6 py-4 font-medium">Nombre / Empresa</th>
                 <th className="px-6 py-4 font-medium">Servicio</th>
+                <th className="px-6 py-4 font-medium hidden md:table-cell">Objetivo</th>
                 <th className="px-6 py-4 font-medium">Fecha</th>
                 <th className="px-6 py-4 font-medium">Estado</th>
                 <th className="px-6 py-4 font-medium text-right">Acción</th>
@@ -54,6 +55,15 @@ export default async function LeadsPage() {
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-600">
                       {lead.service}
+                    </td>
+                    <td className="px-6 py-4 hidden md:table-cell">
+                      {lead.primary_goal ? (
+                        <span className="inline-block px-2 py-0.5 rounded-full bg-blue-50 border border-blue-200 text-xs font-medium text-blue-700">
+                          {lead.primary_goal}
+                        </span>
+                      ) : (
+                        <span className="text-xs text-gray-400">—</span>
+                      )}
                     </td>
                     <td className="px-6 py-4 text-sm text-gray-500">
                       {format(new Date(lead.created_at), "d 'de' MMM, yyyy", { locale: es })}
@@ -75,7 +85,7 @@ export default async function LeadsPage() {
                 ))
               ) : (
                 <tr>
-                  <td colSpan={5} className="px-6 py-12 text-center text-gray-500">
+                  <td colSpan={6} className="px-6 py-12 text-center text-gray-500">
                     No hay prospectos registrados todavía.
                   </td>
                 </tr>

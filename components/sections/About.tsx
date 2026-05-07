@@ -1,20 +1,10 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 export function About() {
   return (
-    <section id="nosotros" className="relative mx-auto max-w-7xl px-6 py-24 overflow-hidden">
-      {/* Colorful background blobs for the section */}
+    <section id="nosotros" className="relative mx-auto max-w-7xl px-6 py-12 overflow-hidden">
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-bl from-[#00b4d8]/10 to-[#1c4a8f]/5 rounded-full blur-3xl -z-10" />
       <div className="absolute bottom-0 left-[-100px] w-[400px] h-[400px] bg-gradient-to-tr from-[#1c4a8f]/10 to-transparent rounded-full blur-3xl -z-10" />
 
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        className="rounded-[2.5rem] border border-slate-200 bg-white p-10 shadow-2xl shadow-slate-200/50 md:p-16 relative overflow-hidden"
-      >
+      <div className="rounded-[2.5rem] border border-slate-200 bg-white p-8 shadow-2xl shadow-slate-200/50 md:p-12 relative overflow-hidden">
         <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-[#1c4a8f] via-[#00b4d8] to-[#1c4a8f]" />
 
         <div className="relative z-10 grid lg:grid-cols-2 gap-12 items-center">
@@ -43,49 +33,28 @@ export function About() {
           </div>
         </div>
 
-        {/* Statistics Section */}
-        <div className="relative z-10 mt-16 pt-12 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
-          >
+        <div className="relative z-10 mt-10 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+          <div>
             <p className="text-4xl md:text-5xl font-extrabold text-[#1c4a8f] mb-2">+20</p>
             <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Clientes Activos</p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-          >
+          </div>
+
+          <div>
             <p className="text-4xl md:text-5xl font-extrabold text-[#00b4d8] mb-2">+3k</p>
             <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Horas de Trabajo</p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.3 }}
-          >
+          </div>
+
+          <div>
             <p className="text-4xl md:text-5xl font-extrabold text-[#1c4a8f] mb-2">+10</p>
             <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Años Experiencia</p>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
+          </div>
+
+          <div>
             <p className="text-4xl md:text-5xl font-extrabold text-[#00b4d8] mb-2">100%</p>
             <p className="text-sm font-semibold text-slate-500 uppercase tracking-wider">Compromiso</p>
-          </motion.div>
+          </div>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
