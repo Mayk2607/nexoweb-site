@@ -6,7 +6,8 @@ import { cn } from "@/lib/utils";
 /** Comparison Data with rich labels */
 const ROWS = [
   { label: "Modelo Comercial",    express: "Pago único",                  start: "Mensualidad",        business: "Mensualidad" },
-  { label: "Inversión Inicial",   express: expressPackage.price,          start: webPackages[0].setupPrice, business: webPackages[1].setupPrice },
+  { label: "Configuración Inicial", express: expressPackage.price,          start: start.setupPrice,     business: business.setupPrice },
+  { label: "Costo Mensual",       express: "—",                           start: start.monthlyPrice,   business: business.monthlyPrice },
   { label: "Estructura Web",      express: "Landing básica",              start: "Landing Pro",        business: "Multi-página" },
   { label: "Dominio y Hosting",   express: true,                          start: true,                 business: true },
   { label: "SSL de Seguridad",    express: true,                          start: true,                 business: true },
@@ -84,8 +85,9 @@ export function PlanComparison() {
                   <div className="flex flex-col items-center gap-2">
                     <Zap className="h-6 w-6 text-slate-400" />
                     <div className="text-xl font-black text-slate-900 tracking-tight">EXPRESS</div>
+                    <div className="text-lg font-bold text-[#1c4a8f]">{expressPackage.price}</div>
                     <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400 bg-slate-100 px-2 py-0.5 rounded-full">
-                      Puntual
+                      Pago único
                     </div>
                   </div>
                 </th>
@@ -96,6 +98,7 @@ export function PlanComparison() {
                   <div className="flex flex-col items-center gap-2">
                     <Star className="h-6 w-6 text-yellow-400 fill-yellow-400" />
                     <div className="text-xl font-black text-white tracking-tight">{start.name}</div>
+                    <div className="text-lg font-bold text-white">{start.monthlyPrice}/mes</div>
                     <div className="text-[10px] font-black uppercase tracking-widest text-[#0f274f] bg-white px-2 py-0.5 rounded-full shadow-lg">
                       {start.highlightLabel}
                     </div>
@@ -107,6 +110,7 @@ export function PlanComparison() {
                   <div className="flex flex-col items-center gap-2">
                     <ShieldCheck className="h-6 w-6 text-slate-800" />
                     <div className="text-xl font-black text-slate-900 tracking-tight">{business.name}</div>
+                    <div className="text-lg font-bold text-[#1c4a8f]">{business.monthlyPrice}/mes</div>
                     <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
                       Crecimiento
                     </div>
