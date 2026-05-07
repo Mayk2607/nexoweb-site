@@ -116,75 +116,82 @@ export function PlanComparison() {
 
       {/* Mobile View: Cards */}
       <div className="grid grid-cols-1 gap-6 md:hidden">
-        {plans.map((plan) => (
-          <div 
-            key={plan.name} 
-            className={cn(
-              "relative overflow-hidden rounded-[2rem] border p-8 transition-all",
-              plan.borderColor,
-              plan.color, // Apply the plan's background color
-              plan.highlight ? "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10" : "bg-white"
-            )}
-          >
-            {plan.highlight && (
-              <div className="absolute top-0 left-0 w-full h-1.5 bg-[#00b4d8]" />
-            )}
-            
-            <div className="flex items-center gap-4 mb-6">
-              <div className={cn(
-                "flex h-12 w-12 items-center justify-center rounded-2xl",
-                plan.highlight ? "bg-white/10 text-white" : "bg-slate-100 text-[#1c4a8f]"
-              )}>
-                <plan.icon className="h-6 w-6" />
-              </div>
-              <div>
-                <h3 className={cn("text-xl font-black tracking-tight", plan.textColor)}>{plan.name}</h3>
-                <p className={cn("text-xs font-bold uppercase tracking-widest opacity-70", plan.textColor)}>{plan.sub}</p>
-              </div>
-            </div>
-
-            <div className="mb-8">
-              <div className={cn("text-3xl font-black", plan.textColor)}>{plan.price}</div>
-              <div className={cn("text-xs font-medium opacity-60", plan.textColor)}>
-                {plan.key === "express" ? "Inversión única" : "Mantenimiento mensual"}
-              </div>
-            </div>
-
-            <div className="space-y-4 mb-8">
-              {ROWS.map((row) => (
-                <div 
-                  key={row.label} 
-                  className={cn(
-                    "flex items-center justify-between py-2 border-b last:border-0",
-                    plan.highlight ? "border-white/10" : "border-slate-100"
-                  )}
-                >
-                  <span className={cn(
-                    "text-[10px] font-black uppercase tracking-widest",
-                    plan.highlight ? "text-white/80" : "text-slate-400"
-                  )}>
-                    {row.label}
-                  </span>
-                  <div className="flex-1 flex justify-end">
-                    <FeatureCell value={row[plan.key]} highlight={plan.highlight} />
-                  </div>
-                </div>
-              ))}
-            </div>
-
-            <Link
-              href={plan.link}
+        {plans.map((plan) => {
+          const isDark = plan.color.includes("900") || plan.color.includes("1c4a8f");
+          return (
+            <div 
+              key={plan.name} 
               className={cn(
-                "flex w-full items-center justify-center gap-2 rounded-xl py-4 text-sm font-black uppercase tracking-widest transition-all active:scale-95",
-                plan.buttonClass
+                "relative overflow-hidden rounded-[2rem] border p-8 transition-all",
+                plan.borderColor,
+                plan.color,
+                plan.highlight ? "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10" : "bg-white"
               )}
             >
-              {plan.name === "START" ? "Elegir START" : plan.name === "BUSINESS" ? "Business" : "Ver detalles"} 
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        ))}
+              {plan.highlight && (
+                <div className="absolute top-0 left-0 w-full h-1.5 bg-[#00b4d8]" />
+              )}
+              
+              <div className="flex items-center gap-4 mb-6">
+                <div className={cn(
+                  "flex h-12 w-12 items-center justify-center rounded-2xl",
+                  isDark ? "bg-white/10 text-white" : "bg-slate-100 text-[#1c4a8f]"
+                )}>
+                  <plan.icon className="h-6 w-6" />
+                </div>
+                <div>
+                  <h3 className={cn("text-xl font-black tracking-tight", plan.textColor)}>{plan.name}</h3>
+                  <p className={cn("text-xs font-bold uppercase tracking-widest opacity-70", plan.textColor)}>{plan.sub}</p>
+                </div>
+              </div>
+
+              <div className="mb-8">
+                <div className={cn("text-3xl font-black", plan.textColor)}>{plan.price}</div>
+                <div className={cn("text-xs font-medium opacity-60", plan.textColor)}>
+                  {plan.key === "express" ? "Inversión única" : "Mantenimiento mensual"}
+                </div>
+              </div>
+
+              <div className="space-y-4 mb-8">
+                {ROWS.map((row) => (
+                  <div 
+                    key={row.label} 
+                    className={cn(
+                      "flex items-center justify-between py-2 border-b last:border-0",
+                      isDark ? "border-white/10" : "border-slate-100"
+                    )}
+                  >
+                    <span className={cn(
+                      "text-[10px] font-black uppercase tracking-widest",
+                      isDark ? "text-white/80" : "text-slate-400"
+                    )}>
+                      {row.label}
+                    </span>
+                    <div className="flex-1 flex justify-end">
+                      <FeatureCell 
+                        value={row[plan.key]} 
+                        highlight={isDark} // Treat BUSINESS as 'highlighted' for contrast purposes
+                      />
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              <Link
+                href={plan.link}
+                className={cn(
+                  "flex w-full items-center justify-center gap-2 rounded-xl py-4 text-sm font-black uppercase tracking-widest transition-all active:scale-95",
+                  plan.buttonClass
+                )}
+              >
+                {plan.name === "START" ? "Elegir START" : plan.name === "BUSINESS" ? "Business" : "Ver detalles"} 
+                <ArrowRight className="h-4 w-4" />
+              </Link>
+            </div>
+          );
+        })}
       </div>
+
 
 
       {/* Desktop View: Table */}
@@ -225,12 +232,12 @@ export function PlanComparison() {
                 </th>
 
                 {/* BUSINESS Header */}
-                <th className="p-8 text-center w-[24%] border-b border-l border-slate-100">
+                <th className="p-8 text-center w-[24%] border-b border-l border-slate-800 bg-slate-900">
                   <div className="flex flex-col items-center gap-2">
-                    <ShieldCheck className="h-6 w-6 text-slate-800" />
-                    <div className="text-xl font-black text-slate-900 tracking-tight">{business.name}</div>
-                    <div className="text-lg font-bold text-[#1c4a8f]">{business.monthlyPrice}</div>
-                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                    <ShieldCheck className="h-6 w-6 text-slate-400" />
+                    <div className="text-xl font-black text-white tracking-tight">{business.name}</div>
+                    <div className="text-lg font-bold text-white">{business.monthlyPrice}</div>
+                    <div className="text-[10px] font-bold uppercase tracking-widest text-slate-400">
                       Crecimiento
                     </div>
                   </div>
@@ -250,8 +257,8 @@ export function PlanComparison() {
                   <td className="p-6 text-center bg-[#1c4a8f]">
                     <FeatureCell value={row.start} highlight />
                   </td>
-                  <td className="p-6 text-center border-l border-slate-100/50">
-                    <FeatureCell value={row.business} />
+                  <td className="p-6 text-center bg-slate-900 border-l border-slate-800">
+                    <FeatureCell value={row.business} highlight />
                   </td>
                 </tr>
               ))}
@@ -276,14 +283,15 @@ export function PlanComparison() {
                     Elegir START
                   </Link>
                 </td>
-                <td className="p-8 text-center bg-slate-50/50 border-l border-slate-100">
+                <td className="p-8 text-center bg-slate-900 border-l border-slate-800">
                   <Link
                     href={business.buttonLink}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-slate-900 bg-slate-900 px-6 py-3 text-sm font-black text-white uppercase tracking-widest hover:bg-slate-800 transition-all shadow-lg"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border-2 border-white bg-white px-6 py-3 text-sm font-black text-slate-900 uppercase tracking-widest hover:bg-slate-50 transition-all shadow-lg"
                   >
                     Business <ArrowRight className="h-4 w-4" />
                   </Link>
                 </td>
+
               </tr>
             </tfoot>
           </table>
