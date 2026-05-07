@@ -54,6 +54,45 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
 }
 
 export function PlanComparison() {
+  const plans = [
+    { 
+      name: "EXPRESS", 
+      price: expressPackage.price, 
+      sub: "Pago único", 
+      icon: Zap, 
+      color: "bg-slate-50",
+      textColor: "text-slate-900",
+      borderColor: "border-slate-200",
+      buttonClass: "bg-slate-100 text-slate-900 hover:bg-slate-200",
+      link: expressPackage.buttonLink,
+      key: "express" as const
+    },
+    { 
+      name: start.name, 
+      price: start.monthlyPrice, 
+      sub: start.highlightLabel, 
+      icon: Star, 
+      color: "bg-[#1c4a8f]",
+      textColor: "text-white",
+      borderColor: "border-[#1c4a8f]",
+      highlight: true,
+      buttonClass: "bg-white text-[#1c4a8f] hover:bg-slate-50 shadow-xl shadow-black/20",
+      link: start.buttonLink,
+      key: "start" as const
+    },
+    { 
+      name: business.name, 
+      price: business.monthlyPrice, 
+      sub: "Crecimiento", 
+      icon: ShieldCheck, 
+      color: "bg-slate-900",
+      textColor: "text-white",
+      borderColor: "border-slate-900",
+      buttonClass: "bg-white text-slate-900 hover:bg-slate-50",
+      link: business.buttonLink,
+      key: "business" as const
+    }
+  ];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
@@ -69,7 +108,68 @@ export function PlanComparison() {
         </p>
       </div>
 
-      <div className="relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl shadow-slate-200/40">
+      {/* Mobile View: Cards */}
+      <div className="grid grid-cols-1 gap-6 md:hidden">
+        {plans.map((plan) => (
+          <div 
+            key={plan.name} 
+            className={cn(
+              "relative overflow-hidden rounded-[2rem] border p-8 transition-all",
+              plan.borderColor,
+              plan.highlight ? "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10" : "bg-white"
+            )}
+          >
+            {plan.highlight && (
+              <div className="absolute top-0 left-0 w-full h-1.5 bg-[#00b4d8]" />
+            )}
+            
+            <div className="flex items-center gap-4 mb-6">
+              <div className={cn(
+                "flex h-12 w-12 items-center justify-center rounded-2xl",
+                plan.highlight ? "bg-white/10 text-white" : "bg-slate-100 text-[#1c4a8f]"
+              )}>
+                <plan.icon className="h-6 w-6" />
+              </div>
+              <div>
+                <h3 className={cn("text-xl font-black tracking-tight", plan.textColor)}>{plan.name}</h3>
+                <p className={cn("text-xs font-bold uppercase tracking-widest opacity-70", plan.textColor)}>{plan.sub}</p>
+              </div>
+            </div>
+
+            <div className="mb-8">
+              <div className={cn("text-3xl font-black", plan.textColor)}>{plan.price}</div>
+              <div className={cn("text-xs font-medium opacity-60", plan.textColor)}>
+                {plan.key === "express" ? "Inversión única" : "Mantenimiento mensual"}
+              </div>
+            </div>
+
+            <div className="space-y-4 mb-8">
+              {ROWS.map((row) => (
+                <div key={row.label} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
+                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{row.label}</span>
+                  <div className="flex-1 flex justify-end">
+                    <FeatureCell value={row[plan.key]} highlight={plan.highlight} />
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <Link
+              href={plan.link}
+              className={cn(
+                "flex w-full items-center justify-center gap-2 rounded-xl py-4 text-sm font-black uppercase tracking-widest transition-all active:scale-95",
+                plan.buttonClass
+              )}
+            >
+              {plan.name === "START" ? "Elegir START" : plan.name === "BUSINESS" ? "Business" : "Ver detalles"} 
+              <ArrowRight className="h-4 w-4" />
+            </Link>
+          </div>
+        ))}
+      </div>
+
+      {/* Desktop View: Table */}
+      <div className="hidden md:block relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl shadow-slate-200/40">
         <div className="overflow-x-auto">
           <table className="w-full min-w-[850px] border-collapse">
             <thead>
@@ -179,4 +279,5 @@ export function PlanComparison() {
     </section>
   );
 }
+
 
