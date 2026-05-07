@@ -48,13 +48,14 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
   }
   return (
     <span className={cn(
-      "text-[13px] font-bold tracking-tight text-right block",
-      highlight ? "text-white" : "text-slate-600"
+      "text-[13px] font-bold tracking-tight block",
+      highlight ? "text-white text-right md:text-center" : "text-slate-600 text-right md:text-center"
     )}>
       {value}
     </span>
   );
 }
+
 
 
 export function PlanComparison() {
@@ -159,7 +160,7 @@ export function PlanComparison() {
                 >
                   <span className={cn(
                     "text-[10px] font-black uppercase tracking-widest",
-                    plan.highlight ? "text-white/50" : "text-slate-400"
+                    plan.highlight ? "text-white/80" : "text-slate-400"
                   )}>
                     {row.label}
                   </span>
