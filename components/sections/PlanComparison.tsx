@@ -7,7 +7,7 @@ import { cn } from "@/lib/utils";
 
 /** Comparison Data with rich labels */
 const ROWS = [
-  { label: "Modelo de Pago",    express: "Pago único",                  start: "Mensualidad",        business: "Mensualidad" },
+  { label: "Modelo Comercial",    express: "Pago único",                  start: "Mensualidad",        business: "Mensualidad" },
   { label: "Configuración Inicial", express: expressPackage.price,          start: start.setupPrice,     business: business.setupPrice },
   { label: "Costo Mensual",       express: "—",                           start: start.monthlyPrice,   business: business.monthlyPrice },
   { label: "Estructura Web",      express: "Landing básica",              start: "Landing Pro",        business: "Multi-página" },
