@@ -27,7 +27,7 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
       <div className="flex justify-center">
         <div className={cn(
           "flex h-7 w-7 items-center justify-center rounded-full transition-transform hover:scale-110",
-          highlight ? "bg-emerald-500 text-white shadow-lg shadow-emerald-500/20" : "bg-emerald-100 text-emerald-600"
+          highlight ? "bg-white text-[#1c4a8f] shadow-lg shadow-white/20" : "bg-emerald-100 text-emerald-600"
         )}>
           <Check className="h-4 w-4 stroke-[3]" />
         </div>
@@ -37,7 +37,10 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
   if (value === false) {
     return (
       <div className="flex justify-center">
-        <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-300">
+        <div className={cn(
+          "flex h-7 w-7 items-center justify-center rounded-full",
+          highlight ? "bg-white/10 text-white/30" : "bg-slate-100 text-slate-300"
+        )}>
           <Minus className="h-4 w-4" />
         </div>
       </div>
@@ -45,13 +48,14 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
   }
   return (
     <span className={cn(
-      "text-[13px] font-bold tracking-tight text-center block",
-      highlight ? "text-[#1c4a8f]" : "text-slate-600"
+      "text-[13px] font-bold tracking-tight text-right block",
+      highlight ? "text-white" : "text-slate-600"
     )}>
       {value}
     </span>
   );
 }
+
 
 export function PlanComparison() {
   const plans = [
@@ -241,7 +245,7 @@ export function PlanComparison() {
                   <td className="p-6 text-center border-l border-slate-100/50">
                     <FeatureCell value={row.express} />
                   </td>
-                  <td className="p-6 text-center bg-[#1c4a8f]/[0.03]">
+                  <td className="p-6 text-center bg-[#1c4a8f]">
                     <FeatureCell value={row.start} highlight />
                   </td>
                   <td className="p-6 text-center border-l border-slate-100/50">
