@@ -1,4 +1,6 @@
 import { webPackages, expressPackage } from "@/config/data";
+const start = webPackages[0];
+const business = webPackages[1];
 import { Check, Minus, ArrowRight, Zap, Star, ShieldCheck } from "lucide-react";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -52,8 +54,6 @@ function FeatureCell({ value, highlight }: { value: string | boolean; highlight?
 }
 
 export function PlanComparison() {
-  const start = webPackages[0];
-  const business = webPackages[1];
 
   return (
     <section className="mx-auto max-w-7xl px-6 py-20">
