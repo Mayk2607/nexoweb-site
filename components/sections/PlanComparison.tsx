@@ -116,6 +116,7 @@ export function PlanComparison() {
             className={cn(
               "relative overflow-hidden rounded-[2rem] border p-8 transition-all",
               plan.borderColor,
+              plan.color, // Apply the plan's background color
               plan.highlight ? "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10" : "bg-white"
             )}
           >
@@ -145,8 +146,19 @@ export function PlanComparison() {
 
             <div className="space-y-4 mb-8">
               {ROWS.map((row) => (
-                <div key={row.label} className="flex items-center justify-between py-2 border-b border-slate-100 last:border-0">
-                  <span className="text-xs font-bold text-slate-400 uppercase tracking-wider">{row.label}</span>
+                <div 
+                  key={row.label} 
+                  className={cn(
+                    "flex items-center justify-between py-2 border-b last:border-0",
+                    plan.highlight ? "border-white/10" : "border-slate-100"
+                  )}
+                >
+                  <span className={cn(
+                    "text-[10px] font-black uppercase tracking-widest",
+                    plan.highlight ? "text-white/50" : "text-slate-400"
+                  )}>
+                    {row.label}
+                  </span>
                   <div className="flex-1 flex justify-end">
                     <FeatureCell value={row[plan.key]} highlight={plan.highlight} />
                   </div>
@@ -167,6 +179,7 @@ export function PlanComparison() {
           </div>
         ))}
       </div>
+
 
       {/* Desktop View: Table */}
       <div className="hidden md:block relative overflow-hidden rounded-[2.5rem] border border-slate-200 bg-white shadow-2xl shadow-slate-200/40">
