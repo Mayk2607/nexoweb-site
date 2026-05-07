@@ -124,10 +124,11 @@ export function PlanComparison() {
               className={cn(
                 "relative overflow-hidden rounded-[2rem] border p-8 transition-all",
                 plan.borderColor,
-                plan.color,
-                plan.highlight ? "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10" : "bg-white"
+                plan.color, // This already has the background color (bg-slate-50, bg-[#1c4a8f], bg-slate-900)
+                plan.highlight && "shadow-2xl shadow-[#1c4a8f]/30 scale-[1.02] z-10"
               )}
             >
+
               {plan.highlight && (
                 <div className="absolute top-0 left-0 w-full h-1.5 bg-[#00b4d8]" />
               )}
