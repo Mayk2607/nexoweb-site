@@ -1,73 +1,67 @@
-import { cases } from "../../config/data";
-import { ArrowUpRight, ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
-import { leadCaptureHref } from "@/lib/contact-intent";
-import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
+import Image from "next/image";
+import { ArrowUpRight } from "lucide-react";
+import { portfolioCases } from "@/config/data";
 
 export function Portfolio() {
   return (
-    <section id="portafolio" className="mx-auto max-w-7xl px-6 py-24">
-      <div className="mb-12">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.16em] text-[#1c4a8f]/80">
-          Casos reales
-        </p>
-        <h2 className="mt-1.5 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          Resultados y casos de éxito
-        </h2>
-      </div>
+    <section id="portafolio" className="bg-white py-24 border-t border-gray-200">
+      <div className="mx-auto max-w-7xl px-6">
 
-      <div className="grid gap-8 md:grid-cols-2">
-        {cases.map((item) => (
-          <div key={item.name}>
-            <Link
-              href={`/portafolio/${item.slug}`}
-              className="group relative overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-xl hover:-translate-y-1 block"
-            >
-              <div className="relative h-72 w-full overflow-hidden border-b border-slate-100 bg-[#0a1224]">
-                {item.image && (
-                  <Image
-                    src={item.image}
-                    alt={item.name}
-                    fill
-                    className="object-cover opacity-90 transition duration-500 group-hover:scale-105 group-hover:opacity-100"
-                  />
-                )}
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#1251a3] mb-4">Portafolio</p>
+            <h2 className="text-4xl font-black tracking-tight text-gray-900">
+              Casos de éxito reales.
+            </h2>
+          </div>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8">
+          {portfolioCases.map((c) => (
+            <article key={c.slug} className="group overflow-hidden rounded-2xl border border-gray-200 hover:border-[#b8d0ef] hover:shadow-xl transition-all">
+              {/* Image */}
+              <div className="relative h-60 bg-gray-100 overflow-hidden">
+                <Image
+                  src={c.image}
+                  alt={c.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
+                />
               </div>
+
               <div className="p-8">
-                <div className="mb-4 flex items-center justify-between">
-                  <span className="text-sm font-bold uppercase tracking-wider text-[#1c4a8f]">
-                    {item.name}
-                  </span>
-                  <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f4f7fb] text-[#1c4a8f] transition group-hover:bg-[#1c4a8f] group-hover:text-white">
-                    <ArrowUpRight className="h-4 w-4" />
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mb-4">
+                  {c.tags.map((tag) => (
+                    <span key={tag} className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full bg-gray-100 text-gray-600 border border-gray-200">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+
+                <h3 className="text-xl font-black text-gray-900 mb-2">{c.name}</h3>
+                <p className="text-sm text-gray-700 leading-relaxed mb-6">{c.result}</p>
+
+                <div className="flex items-center justify-between pt-4 border-t border-gray-100">
+                  <span className="text-xs text-gray-600 font-medium">Duración: {c.duration}</span>
+                  <div className="flex items-center gap-4">
+                    {c.link && (
+                      <a href={c.link} target="_blank" rel="noopener noreferrer"
+                        className="flex items-center gap-1 text-xs font-semibold text-gray-400 hover:text-[#1251a3] transition-colors">
+                        Sitio en vivo <ArrowUpRight className="h-3.5 w-3.5" />
+                      </a>
+                    )}
+                    <Link href={`/portafolio/${c.slug}`}
+                      className="flex items-center gap-1 text-xs font-bold text-[#1251a3] hover:text-[#0a1525] transition-colors">
+                      Caso completo <ArrowUpRight className="h-3.5 w-3.5" />
+                    </Link>
                   </div>
                 </div>
-                <p className="text-base text-slate-600 leading-relaxed">
-                  {item.result}
-                </p>
               </div>
-            </Link>
-          </div>
-        ))}
-      </div>
-
-      {/* CTA de cierre */}
-      <div className="mt-12 flex flex-col items-center gap-4 rounded-2xl border border-[#1c4a8f]/15 bg-[#f4f7fb] px-8 py-10 text-center md:flex-row md:text-left md:justify-between">
-        <div>
-          <p className="text-xs font-semibold uppercase tracking-[0.16em] text-[#1c4a8f]/70">Siguiente paso</p>
-          <h3 className="mt-1 text-xl font-bold text-slate-900">¿Tu negocio podría ser el siguiente caso?
-          </h3>
-          <p className="mt-1 text-sm text-slate-600 max-w-lg">
-            Cuéntanos qué necesitas y armamos una propuesta alineada a tu objetivo real.
-          </p>
+            </article>
+          ))}
         </div>
-        <Link
-          href={leadCaptureHref({ servicio: "proyecto-medida" })}
-          className="inline-flex shrink-0 items-center gap-2 rounded-xl bg-gradient-to-r from-[#0f274f] to-[#1c4a8f] px-7 py-3.5 text-sm font-bold text-white shadow-md transition hover:shadow-lg hover:-translate-y-0.5"
-        >
-          {getLeadCaptureCtaLabel("proyecto-medida")} <ArrowRight className="w-4 h-4" />
-        </Link>
       </div>
     </section>
   );

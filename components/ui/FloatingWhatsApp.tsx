@@ -1,17 +1,18 @@
+"use client";
 import { MessageCircle } from "lucide-react";
+import { trackWhatsApp } from "@/lib/events";
 
 export function FloatingWhatsApp() {
-  const phoneNumber = "5218447502607";
-  const message = encodeURIComponent("Hola, me interesa conocer más sobre los servicios de Nexoweb.");
-
+  const phone = "5218447993983";
+  const msg = encodeURIComponent("Hola, me interesa conocer más sobre los servicios de Nexoweb.");
   return (
     <a
-      href={`https://wa.me/${phoneNumber}?text=${message}`}
+      href={`https://wa.me/${phone}?text=${msg}`}
       target="_blank"
       rel="noopener noreferrer"
-      title="WhatsApp — contacto rápido (opcional)"
-      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-lg shadow-[#25D366]/40 transition-transform hover:scale-110 hover:shadow-xl"
-      aria-label="Abrir WhatsApp para contacto rápido (opcional)"
+      aria-label="Contactar por WhatsApp"
+      onClick={() => trackWhatsApp({ location: "floating-button" })}
+      className="fixed bottom-6 right-6 z-50 flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-xl shadow-[#25D366]/30 hover:scale-110 transition-transform"
     >
       <MessageCircle className="h-7 w-7" />
     </a>

@@ -1,59 +1,53 @@
-import { ArrowRight } from "lucide-react";
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight } from "lucide-react";
 import { blogPosts } from "@/config/data";
 
 export function Blog() {
   return (
-    <section id="blog" className="bg-[#f4f7fb] py-24 border-t border-slate-200">
+    <section id="blog" className="bg-gray-50 py-24 border-t border-gray-200">
       <div className="mx-auto max-w-7xl px-6">
-        <h2 className="mb-12 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
-          Blog y Recursos
-        </h2>
 
-        <div className="grid gap-6 md:grid-cols-3">
-          {blogPosts.map((post) => (
-            <article
-              key={post.slug}
-              className="group flex flex-col justify-between overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm transition hover:shadow-lg hover:border-[#1c4a8f]/30"
-            >
-              <div className="relative h-48 w-full overflow-hidden">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-14">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#1251a3] mb-4">Blog</p>
+            <h2 className="text-4xl font-black tracking-tight text-gray-900">
+              Recursos para escalar tu negocio.
+            </h2>
+          </div>
+          <Link href="/blog" className="shrink-0 inline-flex items-center gap-2 text-sm font-semibold text-[#1251a3] hover:text-[#0a1525] transition-colors">
+            Ver todos <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {blogPosts.slice(0, 3).map((post) => (
+            <article key={post.slug} className="group flex flex-col overflow-hidden rounded-2xl bg-white border border-gray-200 hover:border-[#b8d0ef] hover:shadow-lg transition-all">
+              <div className="relative h-48 overflow-hidden bg-gray-100">
                 <Image
                   src={post.image}
                   alt={post.title}
                   fill
-                  className="object-cover transition duration-300 group-hover:scale-105"
+                  className="object-cover group-hover:scale-105 transition-transform duration-500"
                 />
               </div>
-
-              <div className="flex flex-col flex-1 p-8">
-                <span className="mb-4 inline-block text-[10px] font-bold uppercase tracking-widest text-slate-400">
+              <div className="flex flex-col flex-1 p-7">
+                <span className="text-[10px] font-bold uppercase tracking-widest text-gray-500 mb-3">
                   {post.date}
                 </span>
-                <h3 className="text-xl font-bold text-slate-900 leading-snug mb-3">
+                <h3 className="font-black text-gray-900 leading-snug mb-3 text-base">
                   {post.title}
                 </h3>
-                <p className="text-sm text-slate-600 mb-6 flex-1">
+                <p className="text-sm text-gray-700 leading-relaxed flex-1 mb-5">
                   {post.excerpt}
                 </p>
-                <Link
-                  href={`/blog/${post.slug}`}
-                  className="mt-auto flex items-center gap-2 text-sm font-bold text-[#1c4a8f] transition hover:text-[#0f274f]"
-                >
-                  Leer artículo <ArrowRight className="h-4 w-4" />
+                <Link href={`/blog/${post.slug}`}
+                  className="inline-flex items-center gap-2 text-sm font-bold text-[#1251a3] group-hover:text-[#0a1525] transition-colors">
+                  Leer artículo <ArrowRight className="h-4 w-4 group-hover:translate-x-0.5 transition-transform" />
                 </Link>
               </div>
             </article>
           ))}
-        </div>
-
-        <div className="mt-12 text-center">
-          <Link
-            href="/blog"
-            className="inline-flex items-center gap-2 rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-          >
-            Ver todos los artículos
-          </Link>
         </div>
       </div>
     </section>

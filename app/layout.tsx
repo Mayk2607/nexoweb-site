@@ -15,14 +15,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Nexoweb | Desarrollo Web, Software a la Medida y Soluciones B2B",
+  metadataBase: new URL("https://nexoweb.mx"),
+  icons: {
+    icon: "/favicon.svg",
+    shortcut: "/favicon.svg",
+    apple: "/favicon.svg",
+  },
+  title: {
+    default: "Nexoweb — Empresa de Soluciones Tecnológicas en Saltillo, Coahuila",
+    template: "%s | Nexoweb",
+  },
   description:
-    "Agencia experta en desarrollo web corporativo, software a medida, sistemas CRM y automatización. Diseñamos ecosistemas digitales para escalar negocios B2B.",
-  keywords: ["desarrollo web", "software a la medida", "CRM", "automatización B2B", "diseño corporativo", "agencia digital", "sistemas web"],
+    "Empresa de soluciones tecnológicas en Saltillo, Coahuila. Estrategia digital, ingeniería de software e infraestructura tecnológica para empresas en México. Propuesta en 24 horas.",
+  keywords: ["empresa de soluciones tecnológicas Saltillo", "desarrollo de software Saltillo", "agencia digital Saltillo", "diseño web Saltillo", "desarrollo web Coahuila", "marketing digital Saltillo", "software a medida México", "infraestructura cloud México"],
   authors: [{ name: "Nexoweb" }],
   openGraph: {
-    title: "Nexoweb | Desarrollo Web y Soluciones B2B",
-    description: "Digitalizamos y escalamos tu negocio con desarrollo web corporativo y sistemas a la medida.",
+    title: "Nexoweb — Empresa de Soluciones Tecnológicas en Saltillo, Coahuila",
+    description: "Estrategia digital, ingeniería de software e infraestructura tecnológica para empresas que quieren crecer. Saltillo, México.",
     url: "https://nexoweb.mx",
     siteName: "Nexoweb",
     locale: "es_MX",
@@ -30,12 +39,46 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Nexoweb | Desarrollo Web y Software B2B",
-    description: "Digitalizamos y escalamos tu negocio con desarrollo web corporativo y sistemas a la medida.",
+    title: "Nexoweb — Empresa de Soluciones Digitales en Saltillo, Coahuila",
+    description: "Diseño web, software a medida y marketing digital para empresas que quieren crecer. Saltillo, México.",
   },
 };
 
 import { FloatingWhatsApp } from "@/components/ui/FloatingWhatsApp";
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  name: "Nexoweb",
+  description: "Empresa mexicana de soluciones tecnológicas especializada en estrategia digital, ingeniería de software e infraestructura tecnológica para empresas.",
+  url: "https://nexoweb.mx",
+  telephone: "+52-844-799-3983",
+  email: "consultoria@nexoweb.mx",
+  address: {
+    "@type": "PostalAddress",
+    addressLocality: "Saltillo",
+    addressRegion: "Coahuila",
+    addressCountry: "MX",
+  },
+  areaServed: [
+    { "@type": "State", name: "Coahuila" },
+    { "@type": "Country", name: "México" },
+  ],
+  sameAs: [
+    "https://wa.me/5218447993983",
+    "https://www.facebook.com/nexowebmx",
+    "https://www.instagram.com/nexowebmx",
+    "https://x.com/nexowebmx",
+    "https://www.linkedin.com/company/nexowebmx/",
+  ],
+  openingHoursSpecification: {
+    "@type": "OpeningHoursSpecification",
+    dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+    opens: "09:00",
+    closes: "18:00",
+  },
+  priceRange: "$$",
+};
 
 export default function RootLayout({
   children,
@@ -47,6 +90,12 @@ export default function RootLayout({
       lang="es"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col">
         {children}
         <FloatingWhatsApp />

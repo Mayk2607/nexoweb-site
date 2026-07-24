@@ -1,212 +1,155 @@
 "use client";
-
-import { menuItems, services } from "../../config/data";
-import { useCallback, useLayoutEffect, useState } from "react";
-import { cn } from "../../lib/utils";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import { leadCaptureHref } from "@/lib/contact-intent";
-import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
+import { usePathname } from "next/navigation";
+import { Menu, X, ChevronDown, ArrowRight } from "lucide-react";
+import { serviceCategories } from "@/config/data";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [transitionsOn, setTransitionsOn] = useState(false);
+  const [open, setOpen] = useState(false);
+  const [dropdown, setDropdown] = useState(false);
+  const pathname = usePathname();
 
-  const syncScrolled = useCallback(() => {
-    const y = window.scrollY;
-    setScrolled((prev) => {
-      if (y > 28) return true;
-      if (y < 12) return false;
-      return prev;
-    });
+  const navLink = (href: string) =>
+    `px-3 py-2 text-sm font-medium rounded-lg transition-colors ${
+      pathname === href
+        ? "text-[#1251a3] bg-[#f0f4fa] font-semibold"
+        : "text-gray-600 hover:text-[#1251a3] hover:bg-[#f0f4fa]"
+    }`;
+
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
   }, []);
-
-  useLayoutEffect(() => {
-    syncScrolled();
-    const onScroll = () => syncScrolled();
-    window.addEventListener("scroll", onScroll, { passive: true });
-    window.addEventListener("load", onScroll);
-    let raf2 = 0;
-    const raf1 = requestAnimationFrame(() => {
-      syncScrolled();
-      raf2 = requestAnimationFrame(() => {
-        syncScrolled();
-        setTransitionsOn(true);
-      });
-    });
-    return () => {
-      window.removeEventListener("scroll", onScroll);
-      window.removeEventListener("load", onScroll);
-      cancelAnimationFrame(raf1);
-      cancelAnimationFrame(raf2);
-    };
-  }, [syncScrolled]);
 
   return (
     <header
-      className={cn(
-        "fixed top-0 z-50 w-full",
-        transitionsOn &&
-          "transition-[background-color,backdrop-filter,padding,box-shadow,border-color] duration-300 ease-out",
-        scrolled
-          ? "bg-white/90 backdrop-blur-md border-b border-slate-200 py-3 shadow-sm"
-          : "bg-transparent py-5"
-      )}
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-200 ${
+        scrolled || pathname !== "/"
+          ? "bg-white border-b border-gray-200 shadow-sm"
+          : "bg-white/80 backdrop-blur-sm"
+      }`}
     >
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-6 px-6">
-        <Link href="/" className="outline-none" onClick={() => setMobileMenuOpen(false)}>
-          <div className="flex items-center">
-            <div className="flex items-center justify-center h-20 w-auto">
-              <Image
-                src="/logo.png"
-                alt="Nexoweb"
-                width={300}
-                height={300}
-                className="h-full w-auto object-contain scale-[2.2] origin-left"
-                priority
-              />
-            </div>
-          </div>
-        </Link>
+      <div className="mx-auto max-w-7xl px-6">
+        <div className="flex h-16 items-center justify-between">
+          {/* Logo */}
+          <Link href="/" className="shrink-0" onClick={() => setOpen(false)}>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/nexoweb-logo.svg" alt="Nexoweb" className="h-14 w-auto" />
+          </Link>
 
-        <nav className="hidden items-center gap-6 md:flex">
-          {menuItems.map((item) => {
-            if (item.label === "Servicios") {
-              return (
-                <div key={item.label} className="relative group">
-                  <button
-                    type="button"
-                    className="flex items-center gap-1 text-sm font-medium text-slate-600 transition hover:text-[#1c4a8f] py-2"
-                  >
-                    {item.label}
-                    <ChevronDown className="w-4 h-4" />
-                  </button>
-                  <div
-                    className={cn(
-                      "absolute left-1/2 top-full z-50 w-72 -translate-x-1/2 rounded-2xl border border-slate-100 bg-white p-3 shadow-2xl transition duration-150",
-                      "invisible scale-95 opacity-0 group-hover:visible group-hover:scale-100 group-hover:opacity-100",
-                      "pointer-events-none group-hover:pointer-events-auto"
-                    )}
-                  >
-                    <div className="grid gap-1">
-                      {services.map((service) => (
-                        <Link
-                          key={service.slug}
-                          href={`/servicios/${service.slug}`}
-                          className="block rounded-lg px-4 py-3 hover:bg-slate-50 transition"
-                        >
-                          <span className="block text-sm font-bold text-slate-900">{service.title}</span>
-                        </Link>
-                      ))}
+          {/* Nav desktop */}
+          <nav className="hidden md:flex items-center gap-1">
+            <Link href="/" className={navLink("/")}>
+              Inicio
+            </Link>
+            <Link href="/nosotros" className={navLink("/nosotros")}>
+              Nosotros
+            </Link>
+
+            {/* Servicios dropdown */}
+            <div className="relative" onMouseEnter={() => setDropdown(true)} onMouseLeave={() => setDropdown(false)}>
+              <button className={`flex items-center gap-1 px-3 py-2 text-sm font-medium rounded-lg transition-colors ${pathname.startsWith("/servicios") ? "text-[#1251a3] bg-[#f0f4fa] font-semibold" : "text-gray-600 hover:text-[#1251a3] hover:bg-[#f0f4fa]"}`}>
+                Servicios <ChevronDown className={`h-3.5 w-3.5 transition-transform ${dropdown ? "rotate-180" : ""}`} />
+              </button>
+              {dropdown && (
+                <div className="absolute left-0 top-full pt-2 w-64">
+                  <div className="rounded-2xl bg-white border border-gray-200 shadow-xl p-2">
+                    {serviceCategories.map((cat) => (
+                      <Link
+                        key={cat.id}
+                        href={`/servicios#${cat.id}`}
+                        className="flex items-start gap-3 rounded-xl p-3 hover:bg-[#f0f4fa] transition-colors group"
+                        onClick={() => setDropdown(false)}
+                      >
+                        <div className="mt-0.5 w-2 h-2 rounded-full bg-[#1251a3] shrink-0 group-hover:scale-125 transition-transform" />
+                        <div>
+                          <p className="text-sm font-semibold text-gray-900">{cat.title}</p>
+                          <p className="text-xs text-gray-500 mt-0.5">{cat.tagline}</p>
+                        </div>
+                      </Link>
+                    ))}
+                    <div className="border-t border-gray-100 mt-1 pt-1">
+                      <Link
+                        href="/servicios"
+                        className="flex items-center gap-2 px-3 py-2 text-xs font-semibold text-[#1251a3] hover:text-[#0a1525] transition-colors"
+                        onClick={() => setDropdown(false)}
+                      >
+                        Ver todos los servicios <ArrowRight className="h-3 w-3" />
+                      </Link>
                     </div>
                   </div>
                 </div>
-              );
-            }
+              )}
+            </div>
 
-            return (
-              <a
-                key={item.label}
-                href={item.href.startsWith("#") ? `/${item.href}` : item.href}
-                className="text-sm font-medium text-slate-600 transition hover:text-[#1c4a8f] py-2"
-              >
-                {item.label}
-              </a>
-            );
-          })}
-        </nav>
+            <Link href="/portafolio" className={navLink("/portafolio")}>
+              Portafolio
+            </Link>
+            <Link href="/contacto" className={navLink("/contacto")}>
+              Contacto
+            </Link>
+          </nav>
 
-        <div className="flex items-center gap-4">
-          <Link
-            href={leadCaptureHref({ servicio: "diagnostico" })}
-            className="hidden sm:inline-flex rounded-lg bg-gradient-to-r from-[#0f274f] to-[#1c4a8f] px-5 py-2.5 text-sm font-semibold text-white shadow-md transition hover:shadow-lg hover:scale-105"
-          >
-            {getLeadCaptureCtaLabel("diagnostico")}
-          </Link>
+          {/* CTA desktop */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              href="/contacto"
+              className="inline-flex items-center gap-2 rounded-lg bg-[#1251a3] px-4 py-2 text-sm font-semibold text-white hover:bg-[#0d1f35] transition-colors shadow-sm shadow-[#1251a3]/25"
+            >
+              Hablar con un experto
+            </Link>
+          </div>
 
+          {/* Hamburger mobile */}
           <button
-            type="button"
-            className="md:hidden p-2 text-slate-600 hover:text-[#0f274f] transition"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle mobile menu"
-            aria-expanded={mobileMenuOpen}
+            className="md:hidden rounded-lg p-2 text-gray-600 hover:bg-gray-100 transition-colors"
+            onClick={() => setOpen(!open)}
+            aria-label="Menú"
           >
-            {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
         </div>
       </div>
 
-      <div
-        className={cn(
-          "md:hidden overflow-hidden bg-white transition-[max-height,opacity] duration-200 ease-out",
-          mobileMenuOpen
-            ? "max-h-[min(85vh,920px)] border-b border-slate-200 opacity-100"
-            : "max-h-0 opacity-0"
-        )}
-        aria-hidden={!mobileMenuOpen}
-      >
-        <div className="flex flex-col px-6 py-4 space-y-4">
-          {menuItems.map((item) => {
-            if (item.label === "Servicios") {
-              return (
-                <div key={item.label} className="flex flex-col space-y-2">
-                  <button
-                    type="button"
-                    onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                    className="flex items-center justify-between text-base font-semibold text-slate-900 py-2 border-b border-slate-100"
-                  >
-                    {item.label}
-                    <ChevronDown
-                      className={cn("w-4 h-4 transition-transform", mobileServicesOpen && "rotate-180")}
-                    />
-                  </button>
-                  <div
-                    className={cn(
-                      "flex flex-col space-y-2 pl-4 overflow-hidden transition-[max-height,opacity] duration-200",
-                      mobileServicesOpen ? "max-h-[480px] opacity-100" : "max-h-0 opacity-0"
-                    )}
-                  >
-                    {services.map((service) => (
-                      <Link
-                        key={service.slug}
-                        href={`/servicios/${service.slug}`}
-                        onClick={() => setMobileMenuOpen(false)}
-                        className="block text-sm font-medium text-slate-600 py-2 hover:text-[#1c4a8f]"
-                      >
-                        {service.title}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              );
-            }
-
-            return (
-              <a
-                key={item.label}
-                href={item.href.startsWith("#") ? `/${item.href}` : item.href}
-                onClick={() => setMobileMenuOpen(false)}
-                className="text-base font-semibold text-slate-900 py-2 border-b border-slate-100"
+      {/* Mobile menu */}
+      {open && (
+        <div className="md:hidden border-t border-gray-200 bg-white">
+          <div className="mx-auto max-w-7xl px-6 py-4 space-y-1">
+            {[
+              { label: "Inicio", href: "/" },
+              { label: "Nosotros", href: "/nosotros" },
+              { label: "Servicios", href: "/servicios" },
+              { label: "Portafolio", href: "/portafolio" },
+              { label: "Contacto", href: "/contacto" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`block px-3 py-2.5 text-sm font-medium rounded-lg transition-colors ${
+                  pathname === item.href
+                    ? "text-[#1251a3] bg-[#f0f4fa] font-semibold"
+                    : "text-gray-700 hover:text-[#1251a3] hover:bg-[#f0f4fa]"
+                }`}
+                onClick={() => setOpen(false)}
               >
                 {item.label}
-              </a>
-            );
-          })}
-
-          <div className="pt-4 sm:hidden">
-            <Link
-              href={leadCaptureHref({ servicio: "diagnostico" })}
-              onClick={() => setMobileMenuOpen(false)}
-              className="flex justify-center w-full rounded-lg bg-gradient-to-r from-[#0f274f] to-[#1c4a8f] px-5 py-3 text-sm font-semibold text-white shadow-md"
-            >
-              {getLeadCaptureCtaLabel("diagnostico")}
-            </Link>
+              </Link>
+            ))}
+            <div className="pt-3 border-t border-gray-100">
+              <Link
+                href="/contacto"
+                className="flex items-center justify-center gap-2 rounded-lg bg-[#1251a3] px-4 py-3 text-sm font-semibold text-white hover:bg-[#0d1f35] transition-colors"
+                onClick={() => setOpen(false)}
+              >
+                Hablar con un experto
+              </Link>
+            </div>
           </div>
         </div>
-      </div>
+      )}
     </header>
   );
 }

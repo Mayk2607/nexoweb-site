@@ -1,45 +1,59 @@
+import type { Metadata } from "next";
+import { Suspense } from "react";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { Hero } from "@/components/sections/Hero";
-import { Services } from "@/components/sections/Services";
-import { Ecosystem } from "@/components/sections/Ecosystem";
-import { Pricing } from "@/components/sections/Pricing";
-import { ExpressCard } from "@/components/sections/ExpressCard";
-import { PlanComparison } from "@/components/sections/PlanComparison";
-import { Niches } from "@/components/sections/Niches";
 import { About } from "@/components/sections/About";
-import CustomProjectBanner from "@/components/sections/CustomProjectBanner";
+import { HowWeHelp } from "@/components/sections/HowWeHelp";
+import { Services } from "@/components/sections/Services";
 import { Process } from "@/components/sections/Process";
 import { Portfolio } from "@/components/sections/Portfolio";
-import { Blog } from "@/components/sections/Blog";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { Faq } from "@/components/sections/Faq";
 import { Contact } from "@/components/sections/Contact";
-import { Suspense } from "react";
+
+export const metadata: Metadata = {
+  title: "Nexoweb — Empresa de Soluciones Tecnológicas en Saltillo, Coahuila",
+  description:
+    "Empresa de soluciones tecnológicas en Saltillo, Coahuila. Estrategia digital, ingeniería de software e infraestructura tecnológica para empresas en México. Propuesta en 24 horas.",
+  keywords: [
+    "empresa de soluciones tecnológicas Saltillo",
+    "desarrollo de software Saltillo",
+    "agencia digital Saltillo",
+    "diseño web Saltillo",
+    "desarrollo web Coahuila",
+    "marketing digital Saltillo",
+    "software a medida México",
+    "infraestructura cloud México",
+  ],
+  openGraph: {
+    title: "Nexoweb — Empresa de Soluciones Tecnológicas en Saltillo, Coahuila",
+    description: "Estrategia digital, ingeniería de software e infraestructura tecnológica para empresas que quieren crecer. Saltillo, México.",
+    url: "https://nexoweb.mx",
+    siteName: "Nexoweb",
+    locale: "es_MX",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#f4f7fb] text-[#0a1224] selection:bg-[#1c4a8f] selection:text-white">
+    <>
       <Header />
-      
-      <div className="flex flex-col gap-0">
+      <main>
         <Hero />
         <About />
-        <Pricing />
-        <ExpressCard />
-        <PlanComparison />
+        <HowWeHelp />
         <Services />
         <Process />
-        <Ecosystem />
-        <CustomProjectBanner />
-        <Niches />
         <Portfolio />
-        <Blog />
-        <Suspense fallback={<div className="min-h-[480px]" aria-hidden />}>
+        <Testimonials />
+        <Faq />
+        <Suspense fallback={<div className="min-h-[600px]" />}>
           <Contact />
         </Suspense>
-      </div>
-
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
-

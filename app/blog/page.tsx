@@ -6,8 +6,8 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata = {
-  title: "Blog - Nexoweb Digital Agency",
-  description: "Recursos, estrategias y guías sobre marketing digital, branding corporativo y crecimiento empresarial.",
+  title: "Blog — Recursos Digitales para Empresas | Nexoweb",
+  description: "Recursos, estrategias y guías sobre marketing digital, diseño web, inteligencia artificial y crecimiento empresarial. Por el equipo de Nexoweb, Saltillo.",
 };
 
 export default function BlogIndex() {

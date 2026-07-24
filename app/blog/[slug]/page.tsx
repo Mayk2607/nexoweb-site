@@ -26,7 +26,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   return {
-    title: `${post.title} - Nexoweb Blog`,
+    title: post.title,
     description: post.excerpt,
   };
 }

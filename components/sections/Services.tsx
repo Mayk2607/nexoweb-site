@@ -1,71 +1,135 @@
-import { serviceCategories, services } from "../../config/data";
-import { Globe, Megaphone, Workflow, Server, ArrowRight, type LucideIcon } from "lucide-react";
+"use client";
+import { useState } from "react";
 import Link from "next/link";
-import { leadCaptureHref } from "@/lib/contact-intent";
-import { getLeadCaptureCtaLabel } from "@/lib/lead-tier";
+import Image from "next/image";
+import { ArrowRight, CheckCircle2 } from "lucide-react";
+import { services, serviceCategories } from "@/config/data";
+import type { ServiceCategory } from "@/config/data";
+import { serviceImages } from "@/config/service-images";
 
-/** Map category title → first matching service slug for deep-links */
-const categorySlug: Record<string, string> = {
-  "Sitios Web": "diseno-web-profesional",
-  "Marketing y Captación": "marketing-digital-captacion",
-  "Sistemas y Automatización": "desarrollo-sistemas-crm",
-  "Infraestructura y Soporte": "hosting-administrado",
+const accentColor: Record<ServiceCategory, string> = {
+  presencia: "bg-blue-50 text-blue-700 border-blue-200",
+  marketing: "bg-emerald-50 text-emerald-700 border-emerald-200",
+  tecnologia: "bg-violet-50 text-violet-700 border-violet-200",
 };
 
-const categoryIcons: Record<string, LucideIcon> = {
-  "Sitios Web": Globe,
-  "Marketing y Captación": Megaphone,
-  "Sistemas y Automatización": Workflow,
-  "Infraestructura y Soporte": Server,
+const checkColor: Record<ServiceCategory, string> = {
+  presencia: "text-blue-500",
+  marketing: "text-emerald-500",
+  tecnologia: "text-violet-500",
+};
+
+const dotColor: Record<ServiceCategory, string> = {
+  presencia: "bg-blue-500",
+  marketing: "bg-emerald-500",
+  tecnologia: "bg-violet-500",
 };
 
 export function Services() {
-  return (
-    <section id="servicios" className="mx-auto max-w-7xl px-6 py-10 md:py-12">
-      <div className="mb-5 md:mb-6 max-w-2xl">
-        <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-[#1c4a8f]/80">
-          Líneas de servicio
-        </p>
-        <h2 className="mt-1.5 text-xl font-bold tracking-tight text-slate-900 md:text-2xl">
-          Cuatro pilares, un solo equipo
-        </h2>
-        <p className="mt-2 text-sm text-slate-500 leading-snug">
-          Guía rápida. Los planes y precios están abajo en <span className="text-slate-700 font-medium">NEXOWEB START</span> y paquetes.
-        </p>
-      </div>
+  const [active, setActive] = useState<ServiceCategory>("presencia");
+  const filtered = services.filter((s) => s.category === active);
+  const cat = serviceCategories.find((c) => c.id === active)!;
 
-      <div className="grid grid-cols-1 gap-3 sm:grid-cols-2 sm:gap-3 lg:grid-cols-4 lg:gap-3">
-        {serviceCategories.map((service) => {
-          const Icon = categoryIcons[service.title] ?? Globe;
-          const slug = categorySlug[service.title];
-          return (
-            <Link
-              key={service.title}
-              href={slug ? `/servicios/${slug}` : leadCaptureHref()}
-              className="group flex flex-row items-start gap-3 rounded-xl border border-slate-200/90 bg-white p-3.5 shadow-sm transition hover:border-[#1c4a8f]/35 hover:shadow-md hover:-translate-y-0.5"
+  return (
+    <section id="servicios" className="bg-gray-50 py-24 border-t border-gray-200">
+      <div className="mx-auto max-w-7xl px-6">
+
+        {/* Header */}
+        <div className="grid lg:grid-cols-2 gap-10 items-end mb-12">
+          <div>
+            <p className="text-xs font-bold uppercase tracking-widest text-[#1251a3] mb-4">Servicios</p>
+            <h2 className="text-4xl font-black tracking-tight text-gray-900 leading-[1.1]">
+              Todo lo que tu empresa necesita, en un solo lugar.
+            </h2>
+          </div>
+          <p className="text-gray-600 text-lg leading-relaxed">
+            31 servicios especializados. 3 áreas de solución. Un equipo que trabaja contigo de principio a fin.
+          </p>
+        </div>
+
+        {/* Tabs */}
+        <div className="flex flex-wrap gap-2 mb-10">
+          {serviceCategories.map((cat) => (
+            <button
+              key={cat.id}
+              onClick={() => setActive(cat.id as ServiceCategory)}
+              className={`px-5 py-2.5 rounded-full text-sm font-semibold border transition-all ${
+                active === cat.id
+                  ? "bg-[#1251a3] text-white border-[#1251a3] shadow-sm shadow-[#1251a3]/25"
+                  : "bg-white text-gray-600 border-gray-200 hover:border-[#94b8e8] hover:text-[#1251a3]"
+              }`}
             >
-              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-gradient-to-br from-[#15366b] to-[#2c63b8] text-white shadow-sm">
-                <Icon className="h-4 w-4" aria-hidden />
+              {cat.title}
+            </button>
+          ))}
+        </div>
+
+        {/* Grid de cards */}
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5 mb-10">
+          {filtered.map((s) => (
+            <Link
+              key={s.slug}
+              href={`/servicios/${s.slug}`}
+              className="group flex flex-col rounded-2xl bg-white border border-gray-200 overflow-hidden hover:border-[#94b8e8] hover:shadow-xl transition-all duration-300"
+            >
+              {/* Imagen */}
+              <div className="relative h-44 overflow-hidden bg-gray-100">
+                {serviceImages[s.slug] ? (
+                  <Image
+                    src={serviceImages[s.slug]}
+                    alt={s.title}
+                    fill
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  />
+                ) : (
+                  <div className="h-full w-full bg-gradient-to-br from-[#dce8f7] to-[#f0f4fa]" />
+                )}
+                {/* Overlay suave al hover */}
+                <div className="absolute inset-0 bg-[#1251a3]/0 group-hover:bg-[#1251a3]/10 transition-colors duration-300" />
               </div>
-              <div className="min-w-0 flex-1">
-                <h3 className="flex items-center justify-between text-sm font-bold leading-tight text-slate-900 md:text-[0.9375rem]">
-                  {service.title}
-                  <ArrowRight className="h-3.5 w-3.5 shrink-0 text-[#1c4a8f] opacity-0 transition-all duration-150 group-hover:opacity-100 group-hover:translate-x-0.5" aria-hidden />
+
+              <div className="flex flex-col flex-1 p-6">
+                {/* Badge */}
+                <div className={`inline-flex items-center gap-1.5 self-start rounded-full border px-2.5 py-1 text-[11px] font-bold mb-3 ${accentColor[active]}`}>
+                  <span className={`h-1.5 w-1.5 rounded-full ${dotColor[active]}`} />
+                  {cat.title}
+                </div>
+
+                {/* Título + tagline */}
+                <h3 className="font-black text-gray-900 text-base leading-snug group-hover:text-[#1251a3] transition-colors mb-1">
+                  {s.title}
                 </h3>
-                <p className="mt-1 text-xs leading-snug text-slate-600 line-clamp-2">
-                  {service.description}
-                </p>
-                <ul className="mt-2 space-y-0.5 border-t border-slate-100 pt-2">
-                  {service.points.map((point) => (
-                    <li key={point} className="text-[11px] leading-snug text-slate-500">
-                      <span className="text-[#1c4a8f]/70">·</span> {point}
+                <p className="text-sm font-medium text-gray-500 mb-4">{s.tagline}</p>
+
+                {/* 2 bullets */}
+                <ul className="space-y-2 mb-5 flex-1">
+                  {s.benefits.slice(0, 2).map((b) => (
+                    <li key={b} className="flex items-start gap-2 text-sm text-gray-700">
+                      <CheckCircle2 className={`h-4 w-4 shrink-0 mt-0.5 ${checkColor[active]}`} />
+                      {b}
                     </li>
                   ))}
                 </ul>
+
+                {/* CTA */}
+                <span className="inline-flex items-center gap-1.5 text-sm font-bold text-[#1251a3] group-hover:gap-2.5 transition-all mt-auto">
+                  Ver servicio completo <ArrowRight className="h-3.5 w-3.5" />
+                </span>
               </div>
             </Link>
-          );
-        })}
+          ))}
+        </div>
+
+        {/* CTA catálogo */}
+        <div className="text-center">
+          <Link
+            href="/servicios"
+            className="inline-flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 hover:border-[#94b8e8] hover:text-[#1251a3] transition-colors"
+          >
+            Ver catálogo completo <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
       </div>
     </section>
   );
