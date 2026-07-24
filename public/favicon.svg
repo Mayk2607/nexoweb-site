@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 108 108" width="108" height="108" role="img">
+  <title>Nexoweb Favicon – Rombo</title>
+  <polygon points="8,54 54,8 54,100" fill="#0d1f35"/>
+  <polygon points="100,54 54,8 54,100" fill="#1251a3"/>
+  <line x1="54" y1="8" x2="54" y2="100" stroke="#f0f4fa" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+  <circle cx="54" cy="8" r="5" fill="#ffffff"/>
+</svg>

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 108" width="560" height="108" role="img">
+  <title>NEXOWEB Logo Blanco</title>
+
+  <!-- Ícono: Rombo partido -->
+  <polygon points="8,54 54,8 54,100" fill="#dce8f8"/>
+  <polygon points="100,54 54,8 54,100" fill="#1251a3"/>
+  <line x1="54" y1="8" x2="54" y2="100" stroke="#ffffff" stroke-width="2" stroke-linecap="round" opacity="0.4"/>
+  <circle cx="54" cy="8" r="5" fill="#ffffff"/>
+  <line x1="120" y1="18" x2="120" y2="90" stroke="#dce8f8" stroke-width="1" stroke-linecap="round" opacity="0.08"/>
+
+  <!-- NEXOWEB como paths vectoriales puros - fill blanco -->
+  <g fill="#ffffff">
+    <path transform="translate(136.00,74) scale(0.058000,-0.058000)" d="M690 0H519L233 433V0H62V702H233L519 267V702H690Z"/>
+    <path transform="translate(179.62,74) scale(0.058000,-0.058000)" d="M233 565V423H462V291H233V137H492V0H62V702H492V565Z"/>
+    <path transform="translate(210.99,74) scale(0.058000,-0.058000)" d="M492 0 349 215 223 0H29L254 357L24 702H223L364 490L488 702H682L459 348L691 0Z"/>
+    <path transform="translate(252.46,74) scale(0.058000,-0.058000)" d="M33 353Q33 456 81.5 538.0Q130 620 212.5 666.0Q295 712 394 712Q493 712 575.5 666.0Q658 620 705.5 538.0Q753 456 753 353Q753 250 705.0 167.5Q657 85 575.0 39.0Q493 -7 394 -7Q295 -7 212.5 39.0Q130 85 81.5 167.5Q33 250 33 353ZM579 353Q579 446 528.5 501.5Q478 557 394 557Q309 557 258.5 502.0Q208 447 208 353Q208 260 258.5 204.5Q309 149 394 149Q478 149 528.5 205.0Q579 261 579 353Z"/>
+    <path transform="translate(298.05,74) scale(0.058000,-0.058000)" d="M1028 702 845 0H638L526 462L410 0H203L25 702H208L309 191L434 702H622L742 191L844 702Z"/>
+    <path transform="translate(359.07,74) scale(0.058000,-0.058000)" d="M233 565V423H462V291H233V137H492V0H62V702H492V565Z"/>
+    <path transform="translate(390.45,74) scale(0.058000,-0.058000)" d="M622 191Q622 103 560.5 51.5Q499 0 389 0H62V702H378Q485 702 545.5 653.0Q606 604 606 520Q606 458 573.5 417.0Q541 376 487 360Q548 347 585.0 299.5Q622 252 622 191ZM233 418H345Q387 418 409.5 436.5Q432 455 432 491Q432 527 409.5 546.0Q387 565 345 565H233ZM449 214Q449 251 424.5 272.0Q400 293 357 293H233V138H359Q402 138 425.5 157.5Q449 177 449 214Z"/>
+  </g>
+</svg>
